@@ -26,9 +26,9 @@
       <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="First Name:" />
-      <Label text="Last Name:" GridPane.rowIndex="1" />
-      <Label text="Birth Date:" GridPane.rowIndex="2" />
+      <Label styleClass="labelTable" text="First Name:" />
+      <Label styleClass="labelTable" text="Last Name:" GridPane.rowIndex="1" />
+      <Label styleClass="labelTable" text="Birth Date:" GridPane.rowIndex="2" />
       <TextField fx:id="txtFirstName" GridPane.columnIndex="1">
          <tooltip>
             <Tooltip text="Introduce el nombre" />

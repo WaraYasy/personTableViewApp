@@ -2,7 +2,7 @@ GridPane{
      -fx-padding: 20;
      -fx-font-family: "Verdana", sans-serif;
 }
-Label{
+.labelTable{
     -fx-font-weight: bold;
     -fx-text-fill: blue;
 }
@@ -10,4 +10,12 @@ Label{
 /* Celdas de toda la tabla centradas*/
 .table-cell {
     -fx-alignment: CENTER;
+}
+
+/* Texto de la cabecera */
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: blue;
 }

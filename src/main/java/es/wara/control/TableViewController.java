@@ -275,6 +275,7 @@ public class TableViewController {
      * @param win     Ventana propietaria del diálogo (usualmente la principal)
      * @param mensaje Texto a mostrar en el cuadro de diálogo
      */
+    
     private void mostrarAlertError(Window win, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initOwner(win);

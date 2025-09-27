@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -27,19 +28,40 @@
       <Label text="First Name:" />
       <Label text="Last Name:" GridPane.rowIndex="1" />
       <Label text="Birth Date: " GridPane.rowIndex="2" />
-      <TextField fx:id="txtFirstName" GridPane.columnIndex="1" />
-      <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <DatePicker fx:id="dateBirth" prefHeight="26.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" text="Add" GridPane.columnIndex="2" />
-      <Button fx:id="btnRestoreRows" mnemonicParsing="false" onAction="#restoreRows" text="Restore Rows" GridPane.rowIndex="3" />
-      <Button fx:id="btnDeleteRows" mnemonicParsing="false" onAction="#deleteSelectedRows" text="Delete Selected Rows" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="txtFirstName" GridPane.columnIndex="1">
+         <tooltip>
+            <Tooltip text="Introduce el nombre" />
+         </tooltip></TextField>
+      <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <tooltip>
+            <Tooltip text="Introduce los apellidos" />
+         </tooltip></TextField>
+      <DatePicker fx:id="dateBirth" prefHeight="26.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+         <tooltip>
+            <Tooltip text="Selecciona la fecha de nacimiento" />
+         </tooltip></DatePicker>
+      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" text="Add" GridPane.columnIndex="2">
+         <tooltip>
+            <Tooltip text="Añadir nueva persona" />
+         </tooltip></Button>
+      <Button fx:id="btnRestoreRows" mnemonicParsing="false" onAction="#restoreRows" text="Restore Rows" GridPane.rowIndex="3">
+         <tooltip>
+            <Tooltip text="Regresan las lineas originales" />
+         </tooltip></Button>
+      <Button fx:id="btnDeleteRows" mnemonicParsing="false" onAction="#deleteSelectedRows" text="Delete Selected Rows" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <tooltip>
+            <Tooltip text="Elimina lineas seleccionadas" />
+         </tooltip></Button>
       <TableView fx:id="tablePerson" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
         <columns>
-          <TableColumn fx:id="colPersonId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colFirstName" prefWidth="187.0" text="First Name" />
-            <TableColumn fx:id="colLastName" prefWidth="170.0" text="Last Name" />
-            <TableColumn fx:id="colBirthDate" prefWidth="167.0" text="Bith Date" />
+          <TableColumn fx:id="colPersonId" prefWidth="60.0" text="ID" />
+          <TableColumn fx:id="colFirstName" prefWidth="180.0" text="First Name" />
+            <TableColumn fx:id="colLastName" prefWidth="180.0" text="Last Name" />
+            <TableColumn fx:id="colBirthDate" prefWidth="180.0" text="Bith Date" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </children>
 </GridPane>

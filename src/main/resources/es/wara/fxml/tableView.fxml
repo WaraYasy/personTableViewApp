@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -27,7 +28,7 @@
    <children>
       <Label text="First Name:" />
       <Label text="Last Name:" GridPane.rowIndex="1" />
-      <Label text="Birth Date: " GridPane.rowIndex="2" />
+      <Label text="Birth Date:" GridPane.rowIndex="2" />
       <TextField fx:id="txtFirstName" GridPane.columnIndex="1">
          <tooltip>
             <Tooltip text="Introduce el nombre" />
@@ -36,14 +37,17 @@
          <tooltip>
             <Tooltip text="Introduce los apellidos" />
          </tooltip></TextField>
-      <DatePicker fx:id="dateBirth" prefHeight="26.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+      <DatePicker fx:id="dateBirth" editable="true" prefHeight="26.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
          <tooltip>
             <Tooltip text="Selecciona la fecha de nacimiento" />
          </tooltip></DatePicker>
-      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" text="Add" GridPane.columnIndex="2">
+      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" styleClass="addPerson" text="Add" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
          <tooltip>
             <Tooltip text="Añadir nueva persona" />
-         </tooltip></Button>
+         </tooltip>
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin></Button>
       <Button fx:id="btnRestoreRows" mnemonicParsing="false" onAction="#restoreRows" text="Restore Rows" GridPane.rowIndex="3">
          <tooltip>
             <Tooltip text="Regresan las lineas originales" />

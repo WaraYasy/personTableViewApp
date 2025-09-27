@@ -62,7 +62,7 @@ public class PeopleViewApp extends Application {
 
         // Configurar escena y dimensiones en el escenario
         stage.setScene(scene);
-        stage.setMinWidth(800);
+        stage.setMinWidth(600);
         stage.setMinHeight(600);
         stage.setMaxWidth(900);
         stage.setMaxHeight(900);

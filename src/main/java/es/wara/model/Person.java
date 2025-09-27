@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * corrigiendo o ignorando valores inválidos y registrando advertencias mediante el logger.
  * </p>
  *
- * <h3>Características principales:</h3>
+ * <h2>Características principales:</h2>
  * <ul>
  *   <li>ID único autogenerado y seguro para concurrencia</li>
  *   <li>Validación automática en setters</li>

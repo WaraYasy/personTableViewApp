@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ import java.util.Arrays;
  * operaciones CRUD (alta, baja, restauración de datos y visualización) y una experiencia de usuario enriquecida
  * con validaciones, alertas y registro de eventos.
  * </p>
- * <h3>Funciones principales:</h3>
+ * <h2>Funciones principales:</h2>
  * <ul>
  *   <li>Mostrar la lista de personas en una {@link TableView}</li>
  *   <li>Agregar nuevas personas mediante formulario</li>
@@ -114,7 +115,6 @@ public class TableViewController {
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
 
-        loger.debug("TableViewController inicializado exitosamente");
     }
 
     /**
@@ -275,7 +275,7 @@ public class TableViewController {
      * @param win     Ventana propietaria del diálogo (usualmente la principal)
      * @param mensaje Texto a mostrar en el cuadro de diálogo
      */
-    
+
     private void mostrarAlertError(Window win, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initOwner(win);

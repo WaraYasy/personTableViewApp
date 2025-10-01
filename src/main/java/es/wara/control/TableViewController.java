@@ -18,27 +18,9 @@ import java.util.List;
 /**
  * Controlador para la gestión de personas en una interfaz JavaFX basada en TableView.
  * <p>
- * Esta clase gestiona la visualización y manipulación de una lista de personas, permitiendo
- * operaciones CRUD (alta, baja, restauración de datos y visualización) y una experiencia de usuario enriquecida
- * con validaciones, alertas y registro de eventos.
+ * Esta clase gestiona la visualización y manipulación de una lista de personas.
  * </p>
- * 
- * <h2>Funciones principales:</h2>
- * <ul>
- *   <li>Mostrar la lista de personas en una {@link TableView}</li>
- *   <li>Agregar nuevas personas mediante formulario con validación completa</li>
- *   <li>Eliminar personas seleccionadas con confirmación</li>
- *   <li>Restaurar el estado original de la tabla con datos básicos</li>
- *   <li>Mostrar mensajes de error e información mediante cuadros de diálogo</li>
- * </ul>
- * 
- * <h2>Validaciones implementadas:</h2>
- * <ul>
- *   <li>Nombre y apellido obligatorios</li>
- *   <li>Fecha de nacimiento opcional pero no puede ser futura</li>
- *   <li>Validación completa usando {@link Person#isValidPerson(List)}</li>
- * </ul>
- * 
+ *
  * <h2>Gestión de errores:</h2>
  * <ul>
  *   <li>Logging completo de todas las operaciones</li>
@@ -115,17 +97,7 @@ public class TableViewController {
      * Este método es llamado automáticamente por JavaFX después de cargar el archivo FXML
      * y antes de mostrar la interfaz al usuario.
      * </p>
-     * 
-     * <h3>Operaciones realizadas:</h3>
-     * <ul>
-     *   <li>Carga la lista inicial de personas desde la base de datos</li>
-     *   <li>Configura el modo de selección múltiple en la tabla</li>
-     *   <li>Establece las fábricas de valores para cada columna de la tabla</li>
-     *   <li>Registra el número de personas cargadas para auditoría</li>
-     * </ul>
-     * 
-     * <b>Nota:</b> Si ocurre un error durante la carga de datos, se registra pero no se
-     * interrumpe la inicialización de la interfaz.
+     *
      * 
      * @see DaoPerson#fillTable()
      * @see javafx.scene.control.TableView.TableViewSelectionModel
@@ -156,15 +128,6 @@ public class TableViewController {
      * antes de persistir la información en la base de datos. Utiliza el patrón de validación
      * del modelo {@link Person} para garantizar la integridad de los datos.
      * </p>
-     * 
-     * <h3>Proceso de validación:</h3>
-     * <ol>
-     *   <li>Crear instancia {@link Person} con los datos del formulario</li>
-     *   <li>Ejecutar validación completa usando {@link Person#isValidPerson(List)}</li>
-     *   <li>Si hay errores, mostrar mensaje detallado al usuario</li>
-     *   <li>Si es válida, persistir en base de datos usando {@link DaoPerson#addPerson(Person)}</li>
-     *   <li>Recargar tabla y limpiar formulario si fue exitoso</li>
-     * </ol>
      * 
      * <h3>Validaciones aplicadas:</h3>
      * <ul>
@@ -233,23 +196,7 @@ public class TableViewController {
      * Implementa una estrategia de eliminación segura procesando los elementos en orden inverso
      * para evitar problemas con los índices cambiantes.
      * </p>
-     * 
-     * <h3>Proceso de eliminación:</h3>
-     * <ol>
-     *   <li>Validar que hay al menos una fila seleccionada</li>
-     *   <li>Obtener y ordenar los índices seleccionados</li>
-     *   <li>Eliminar de la base de datos usando {@link DaoPerson#deletePerson(Person)}</li>
-     *   <li>Eliminar de la tabla visual en orden inverso</li>
-     *   <li>Mostrar resumen de la operación al usuario</li>
-     * </ol>
-     * 
-     * <h3>Características de seguridad:</h3>
-     * <ul>
-     *   <li><b>Eliminación en orden inverso:</b> Evita problemas de índices</li>
-     *   <li><b>Validación de selección:</b> Informa si no hay elementos seleccionados</li>
-     *   <li><b>Persistencia dual:</b> Elimina tanto de BD como de la interfaz</li>
-     *   <li><b>Logging completo:</b> Registra cada operación para auditoría</li>
-     * </ul>
+     *
      * 
      * @see DaoPerson#deletePerson(Person)
      * @see javafx.scene.control.TableView.TableViewSelectionModel
@@ -269,6 +216,7 @@ public class TableViewController {
         try {
             // Obtener índices seleccionados y ordenarlos
             ObservableList<Integer> selectedIndicesList = tsm.getSelectedIndices();
+            // Convertir a array y ordenar
             Integer[] selectedIndices = selectedIndicesList.toArray(new Integer[0]);
             Arrays.sort(selectedIndices);
 
@@ -277,9 +225,13 @@ public class TableViewController {
             // Eliminar en orden inverso para preservar índices
             for (int i = selectedIndices.length - 1; i >= 0; i--) {
                 int index = selectedIndices[i];
+                //obtener persona a eliminar
                 Person personToRemove = tablePerson.getItems().get(index);
+                // Eliminar de la base de datos
                 boolean success = DaoPerson.deletePerson(personToRemove);
+                // Si se eliminó correctamente, actualizar la tabla
                 if (success) {
+                    // Limpiar selección y eliminar de la vista
                     tsm.clearSelection(index);
                     tablePerson.getItems().remove(index);
                     loger.debug("Persona eliminada: {}", personToRemove);
@@ -305,28 +257,6 @@ public class TableViewController {
      * y testing, pero debe usarse con precaución en entornos de producción.
      * </p>
      * 
-     * <h3>Proceso de restauración:</h3>
-     * <ol>
-     *   <li>Registrar estadísticas actuales para logging</li>
-     *   <li>Ejecutar {@link DaoPerson#restoreBasicData()} para limpiar y repoblar la BD</li>
-     *   <li>Recargar la tabla desde la base de datos actualizada</li>
-     *   <li>Mostrar resultado detallado al usuario</li>
-     * </ol>
-     * 
-     * <h3>Datos restaurados:</h3>
-     * <ul>
-     *   <li><b>John Lennon</b> - Nacido: 1940-10-09</li>
-     *   <li><b>Paul McCartney</b> - Nacido: 1942-06-18</li>
-     *   <li><b>George Harrison</b> - Nacido: 1943-02-25</li>
-     *   <li><b>Ringo Starr</b> - Nacido: 1940-07-07</li>
-     * </ul>
-     * 
-     * <h3>⚠️ Advertencias importantes:</h3>
-     * <ul>
-     *   <li><b>Operación destructiva:</b> Elimina TODOS los datos actuales</li>
-     *   <li><b>No reversible:</b> No se puede deshacer esta operación</li>
-     *   <li><b>Reinicia IDs:</b> Los identificadores se reinician desde 1</li>
-     * </ul>
      * 
      * @see DaoPerson#restoreBasicData()
      * @see #mostrarAlertInfo(Window, String)
@@ -372,18 +302,8 @@ public class TableViewController {
      * <p>
      * Restablece todos los controles del formulario a su estado inicial vacío,
      * preparando la interfaz para una nueva captura de datos de persona.
-     * Este método es esencial para mantener una experiencia de usuario fluida.
      * </p>
      * 
-     * <h3>Campos que se limpian:</h3>
-     * <ul>
-     *   <li><b>Nombre:</b> Campo de texto {@link #txtFirstName}</li>
-     *   <li><b>Apellido:</b> Campo de texto {@link #txtLastName}</li>
-     *   <li><b>Fecha de nacimiento:</b> Selector de fecha {@link #dateBirth}</li>
-     * </ul>
-     * 
-     * <p><b>Uso:</b> Se llama automáticamente después de agregar una persona exitosamente
-     * para preparar el formulario para la siguiente entrada.</p>
      * 
      * @see #addPerson()
      * @see javafx.scene.control.TextField#clear()
@@ -400,18 +320,9 @@ public class TableViewController {
     /**
      * Muestra un cuadro de diálogo de error con el mensaje especificado.
      * <p>
-     * Crea y muestra una alerta modal de tipo ERROR para informar al usuario
-     * sobre errores o situaciones que requieren atención inmediata.
+     * Crea y muestra una alerta modal de tipo ERROR para informar al usuario.
      * El diálogo bloquea la interacción hasta que el usuario lo cierre.
      * </p>
-     * 
-     * <h3>Características del diálogo:</h3>
-     * <ul>
-     *   <li><b>Tipo:</b> ERROR (icono rojo de advertencia)</li>
-     *   <li><b>Modal:</b> Bloquea la ventana padre hasta cerrarse</li>
-     *   <li><b>Título:</b> "Error"</li>
-     *   <li><b>Sin cabecera:</b> Solo muestra el mensaje principal</li>
-     * </ul>
      * 
      * @param win     Ventana propietaria del diálogo (usualmente la ventana principal)
      * @param mensaje Texto descriptivo del error a mostrar al usuario
@@ -433,24 +344,8 @@ public class TableViewController {
      * Muestra un cuadro de diálogo informativo con el mensaje especificado.
      * <p>
      * Crea y muestra una alerta modal de tipo INFORMACIÓN para comunicar al usuario
-     * el resultado exitoso de operaciones o información relevante que no requiere
-     * acción inmediata pero es importante que el usuario conozca.
+     * el resultado exitoso de operaciones o información relevante.
      * </p>
-     * 
-     * <h3>Características del diálogo:</h3>
-     * <ul>
-     *   <li><b>Tipo:</b> INFORMATION (icono azul informativo)</li>
-     *   <li><b>Modal:</b> Bloquea la ventana padre hasta cerrarse</li>
-     *   <li><b>Título:</b> "Info"</li>
-     *   <li><b>Sin cabecera:</b> Solo muestra el mensaje principal</li>
-     * </ul>
-     * 
-     * <h3>Casos de uso típicos:</h3>
-     * <ul>
-     *   <li>Confirmación de operaciones exitosas</li>
-     *   <li>Resumen de cambios realizados</li>
-     *   <li>Información sobre el estado del sistema</li>
-     * </ul>
      * 
      * @param win     Ventana propietaria del diálogo (usualmente la ventana principal)
      * @param mensaje Texto informativo a mostrar al usuario

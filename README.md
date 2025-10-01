@@ -4,7 +4,7 @@ Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, ce
 
 ## Descripción
 
-La aplicación implementa una **agenda personal** con interfaz gráfica utilizando JavaFX. La interfaz está construida con un **GridPane** como contenedor principal que organiza los controles de manera estructurada, y una **TableView** para mostrar y manipular una lista de personas. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento.
+La aplicación implementa una **agenda personal** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con un **GridPane** como contenedor principal que organiza los controles de manera estructurada, y una **TableView** para mostrar y manipular una lista de personas. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
 
 ## Objetivos
 
@@ -12,7 +12,7 @@ La aplicación implementa una **agenda personal** con interfaz gráfica utilizan
 - Integrar sistema de logging profesional con **SLF4J** y **Logback**
 - Generar archivos **.jar ejecutables** con todas las dependencias
 - Crear una aplicación JavaFX bien estructurada siguiendo el patrón **Modelo-Vista-Controlador (MVC)**
-- Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'heptálogo?' 🙂‍↕️🙂‍↕️
+- Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'decálogo🤯🫨' 🙂‍↕️🙂‍↕️
 
 ## Características
 
@@ -47,25 +47,56 @@ src/main/java/es/wara/
 ├── PeopleViewApp.java         # Aplicación JavaFX principal
 ├── control/
 │   └── TableViewController.java  # Controlador de la interfaz
+├── dao/
+│   ├── ConectionDB.java       # Gestión de conexiones de base de datos
+│   └── DaoPerson.java         # Operaciones CRUD para Person
 └── model/
     └── Person.java            # Modelo de datos de Persona
 
-src/main/resources/es/wara/
-├── fxml/
-│   └── tableView.fxml         # Definición de la interfaz
-└── css/
-    └── style.css              # Estilos CSS
+src/main/resources/
+├── configuration.properties   # 🚨Configuración de base de datos
+├── logback.xml                # Configuración de logging
+└── es/wara/
+    ├── fxml/
+    │   └── tableView.fxml     # Definición de la interfaz
+    ├── css/
+    │   └── style.css          # Estilos CSS
+    └── sql/
+        └── init.sql           # Script de inicialización de BD
 ```
 
 ## Requisitos
 
 - **Java 11** o superior
 - **Maven 3.8** o superior
+- **MariaDB** para la base de datos)
 - **Dependencias gestionadas automáticamente** por Maven (ver `pom.xml`):
   - JavaFX Controls (21.0.5)
   - JavaFX FXML (21.0.5)
   - SLF4J API (2.0.13)
   - Logback Classic y Core (1.5.13)
+  - MariaDB Java Client (3.5.6)
+
+## Configuración de Base de Datos
+
+### Archivo de Configuración
+La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/` con la siguiente estructura:
+
+```properties
+# Configuración de Base de Datos
+db.host=localhost
+db.port=3306
+db.name=dbpersonas
+db.user=tu_usuario
+db.password=tu_contraseña
+```
+
+### Configuración de la Base de Datos
+1. **Crear la base de datos**: Ejecuta el script `src/main/resources/es/wara/sql/init.sql` en tu servidor de base de datos
+2. **Configurar credenciales**: Modifica el archivo `configuration.properties` con tus credenciales de base de datos
+3. **Verificar conexión**: La aplicación intentará conectarse automáticamente al iniciar
+
+🚨🚨🚨**Importante**: Asegúrate de que el archivo `configuration.properties` esté incluido en tu `.gitignore` para no exponer credenciales de base de datos.
 
 ## Ejecución
 
@@ -136,4 +167,4 @@ La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 
 ---
 
-*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML y TableView. Feliz revisión de ejercicios Israel ✌🏼🌼*
+*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML y TableView. Feliz revisión otoñal de ejercicios Israel 🎃🍂🍁*

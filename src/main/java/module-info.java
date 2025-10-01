@@ -13,6 +13,7 @@ module es.wara {
     // Logging
     requires org.slf4j;
     requires javafx.base;
+    requires org.mariadb.jdbc;
 
 
     // Permitir acceso por reflexión para JavaFX

@@ -7,11 +7,33 @@ import javafx.collections.ObservableList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+/**
+ * Clase de Acceso a Datos (DAO) para la entidad Person.
+ * <p>
+ * Maneja las operaciones Create, Read y Delete para la tabla 'personas'
+ * en la base de datos MariaDB.
+ * </p>
+ * 
+ * <h2>Operaciones soportadas:</h2>
+ * <ul>
+ *   <li><b>Create:</b> Inserción de nuevas personas ({@link #addPerson(Person)})</li>
+ *   <li><b>Read:</b> Consulta y carga de todas las personas ({@link #fillTable()})</li>
+ *   <li><b>Delete:</b> Eliminación de personas existentes ({@link #deletePerson(Person)})</li>
+ *   <li><b>Restore:</b> Restauración de datos básicos ({@link #restoreBasicData()})</li>
+ * </ul>
+ * 
+ * @author Wara Pacheco
+ * @version 1.0
+ * @since 2025-10-01
+ * @see Person
+ * @see ConectionDB
+ */
 public class DaoPerson {
 
     /**
@@ -19,7 +41,21 @@ public class DaoPerson {
      */
     private static final Logger loger = LoggerFactory.getLogger(DaoPerson.class);
 
-
+    /**
+     * Carga todas las personas desde la base de datos y las retorna en una lista observable.
+     * <p>
+     * Este método ejecuta una consulta SELECT para obtener todos los registros de la tabla 'personas'
+     * y los convierte en objetos {@link Person}. La lista resultante es compatible con JavaFX
+     * para binding automático con controles de interfaz como {@link javafx.scene.control.TableView}.
+     * </p>
+     *
+     * 
+     * @return {@link ObservableList} conteniendo todas las personas de la base de datos.
+     *         Lista vacía si no hay registros o si ocurre un error.
+     * 
+     * @see Person#Person()
+     * @see ConectionDB#ConectionDB()
+     */
     public static ObservableList<Person> fillTable(){
         ConectionDB connection;
         ObservableList<Person> lstPerson= FXCollections.observableArrayList();
@@ -52,6 +88,19 @@ public class DaoPerson {
         return lstPerson;
     }
 
+    /**
+     * Elimina una persona específica de la base de datos.
+     * <p>
+     * Ejecuta una operación DELETE utilizando el ID único de la persona como criterio.
+     * </p>
+     *
+     * @param personToDelete La persona a eliminar. Debe tener un ID válido.
+     * @return {@code true} si la persona fue eliminada exitosamente (1 fila afectada),
+     *         {@code false} si no se encontró la persona o si ocurrió un error.
+     * 
+     * @see Person#getPersonId()
+     * @see ConectionDB#ConectionDB()
+     */
     public static boolean deletePerson(Person personToDelete) {
         ConectionDB connection;
         int filasEliminadas =0;
@@ -69,6 +118,28 @@ public class DaoPerson {
         return filasEliminadas >0;
     }
 
+    /**
+     * Inserta una nueva persona en la base de datos.
+     * <p>
+     * Añade un nuevo registro a la tabla 'personas' con los datos básicos proporcionados.
+     * El ID de la persona será asignado automáticamente por la base de datos (AUTO_INCREMENT).
+     * Se recomienda validar los datos antes de llamar a este método usando {@link Person#isValidPerson()}.
+     * </p>
+     *
+     * <h3>Campos insertados:</h3>
+     * <ul>
+     *   <li><b>firstName:</b> Nombre de la persona</li>
+     *   <li><b>lastName:</b> Apellido de la persona</li>
+     *   <li><b>birthDate:</b> Fecha de nacimiento (puede ser null)</li>
+     * </ul>
+     *
+     * @param personaAdd La persona a insertar. Debe contener al menos firstName y lastName.
+     * @return {@code true} si la persona fue insertada exitosamente (1 fila afectada),
+     *         {@code false} si no se pudo insertar o si ocurrió un error.
+     * 
+     * @see Person#isValidPerson()
+     * @see ConectionDB#ConectionDB()
+     */
     public static boolean addPerson(Person personaAdd){
         ConectionDB connection;
         int exito=0;

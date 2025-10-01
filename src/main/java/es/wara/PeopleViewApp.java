@@ -84,5 +84,10 @@ public class PeopleViewApp extends Application {
     public static void main(String[] args) {
         loger.info("=== INICIO DE PEOPLE VIEW APP ===");
         launch(args);
+
+        - Crea la conexión sincrona a la base de datos MariaDB
+        - Cierra la conexión
+        - Obtine los valores del archivo configutation.properties
+
     }
 }

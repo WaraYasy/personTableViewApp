@@ -54,9 +54,9 @@ src/main/resources/
 ├── logback.xml                # Configuración avanzada de logging
 └── es/wara/
     ├── configuration.properties  # 🚨 Configuración de BD 🚨
-    ├── texts.properties          # Textos base para i18n
-    ├── texts_es.properties       # Textos en español (con únicos)
-    ├── texts_en.properties       # Textos en inglés
+    └── Resource Bundle 'texts'
+    │    ├── texts_es.properties       # Textos en español (con únicos)
+    │    └── texts_en.properties       # Textos en inglés
     ├── fxml/
     │   └── tableView.fxml        # FXML
     ├── css/

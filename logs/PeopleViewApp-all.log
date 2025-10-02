@@ -1282,3 +1282,207 @@ Restored data: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
 2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
 2025-10-02 15:02:12 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Attempt to delete rows without having any selected
 2025-10-02 15:02:14 [JavaFX Application Thread] ERROR es.wara.control.TableViewController - You must enter the person's first name.
+2025-10-02 15:41:47 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 15:41:47 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 4 personas obtenidas
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 4 personas
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Ventana configurada - Dimensiones: 650x600 - 900x900
+2025-10-02 15:41:47 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Estilos CSS aplicados
+2025-10-02 15:41:47 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===
+2025-10-02 15:41:50 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando proceso de agregar nueva persona
+2025-10-02 15:41:50 [JavaFX Application Thread] ERROR es.wara.control.TableViewController - Debes introducir el nombre de la persona.
+2025-10-02 15:41:53 [main] INFO  es.wara.PeopleViewApp - === FINALIZANDO PEOPLE VIEW APP ===
+2025-10-02 16:02:13 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:02:13 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 4 personas obtenidas
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 4 personas
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 16:02:13 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 16:02:13 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:02:13 [main] ERROR es.wara.PeopleViewApp - Error crítico al iniciar la aplicación: Exception in Application start method
+java.lang.RuntimeException: Exception in Application start method
+	at javafx.graphics@21.0.5/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:893)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@21.0.5/javafx.scene.image.Image.validateInputStream(Image.java:1140)
+	at javafx.graphics@21.0.5/javafx.scene.image.Image.<init>(Image.java:707)
+	at es.wara/es.wara.PeopleViewApp.start(PeopleViewApp.java:69)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+	at javafx.graphics@21.0.5/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+2025-10-02 16:02:13 [main] INFO  es.wara.PeopleViewApp - === FINALIZANDO PEOPLE VIEW APP ===
+2025-10-02 16:03:02 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:03:02 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 4 personas obtenidas
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 4 personas
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 16:03:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 16:03:02 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:05:33 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:05:33 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 4 personas obtenidas
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 4 personas
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 16:05:33 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Ventana configurada - Dimensiones: 650x600 - 900x900
+2025-10-02 16:05:33 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Estilos CSS aplicados
+2025-10-02 16:05:34 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===
+2025-10-02 16:06:59 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:06:59 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 4 personas obtenidas
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 4 personas
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Ventana configurada - Dimensiones: 650x600 - 900x900
+2025-10-02 16:06:59 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Estilos CSS aplicados
+2025-10-02 16:06:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===
+2025-10-02 16:07:01 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando proceso de agregar nueva persona
+2025-10-02 16:07:01 [JavaFX Application Thread] ERROR es.wara.control.TableViewController - Debes introducir el nombre de la persona.
+2025-10-02 16:07:05 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando proceso de agregar nueva persona
+2025-10-02 16:07:05 [JavaFX Application Thread] ERROR es.wara.control.TableViewController - Debes introducir los apellidos de la persona.
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando proceso de agregar nueva persona
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando inserción de nueva persona: eee eee
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando inserción: eee eee - Fecha: null
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: eee eee
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:07:08 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 5 personas obtenidas
+2025-10-02 16:07:08 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada correctamente.
+2025-10-02 16:07:11 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Limpiando campos del formulario
+2025-10-02 16:07:11 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Campos del formulario limpiados
+2025-10-02 16:07:20 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando proceso de agregar nueva persona
+2025-10-02 16:07:20 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-02 16:07:20 [JavaFX Application Thread] WARN  es.wara.model.Person - Fecha de nacimiento inválida: 2025-11-02. Motivo: []
+2025-10-02 16:07:20 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-02 16:07:20 [JavaFX Application Thread] ERROR es.wara.control.TableViewController - No es posible añadir una fecha de nacimiento mayor a la actual.\n Error:2025-11-02
+2025-10-02 16:07:24 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Limpiando campos del formulario
+2025-10-02 16:07:24 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Campos del formulario limpiados
+2025-10-02 16:07:56 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:07:56 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando interfaz FXML...
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-02 16:07:56 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:07:56 [JavaFX Application Thread] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-02 16:07:56 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'host' encontrada con valor: '127.0.0.1'
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'user' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'pass' encontrada con valor: 'admin'
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'port' encontrada con valor: '3306'
+2025-10-02 16:07:56 [JavaFX Application Thread] DEBUG es.wara.database.Propiedades - Clave 'database' encontrada con valor: 'dbpersonas'
+2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.dao.DaoPerson - Ejecutando consulta: SELECT personId,firstName,lastName,birthDate FROM personas
+2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 5 personas obtenidas
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Lista inicial cargada con 5 personas
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Modo de selección múltiple configurado
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Columnas de tabla configuradas exitosamente
+2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Ventana configurada - Dimensiones: 650x600 - 900x900
+2025-10-02 16:07:57 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Estilos CSS aplicados
+2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===

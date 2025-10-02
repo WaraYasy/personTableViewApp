@@ -3,6 +3,7 @@ package es.wara;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,6 +65,13 @@ public class PeopleViewApp extends Application {
         scene = new Scene(fxmlLoader.load());
         loger.info("Interfaz FXML cargada exitosamente");
 
+        // Configurar icono de la aplicación
+        Image icon = new Image(
+                PeopleViewApp.class.getResource("/es/wara/images/icon.png").toExternalForm()
+        );
+        stage.getIcons().add(icon);
+ 
+
         // Configurar ventana
         stage.setTitle(bundle.getString("title"));
         stage.setScene(scene);
@@ -90,12 +98,6 @@ public class PeopleViewApp extends Application {
      */
     public static void main(String[] args) {
         loger.info("=== INICIANDO PEOPLE VIEW APP ===");
-        try {
-            launch(args);
-        } catch (Exception e) {
-            loger.error("Error crítico al iniciar la aplicación: {}", e.getMessage(), e);
-        } finally {
-            loger.info("=== FINALIZANDO PEOPLE VIEW APP ===");
-        }
+        launch(args);
     }
 }

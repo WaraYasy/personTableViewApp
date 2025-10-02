@@ -35,17 +35,7 @@ La aplicación implementa una **agenda personal multilingue** con interfaz gráf
 - **Alertas multilingues**: Mensajes de error e información localizados
 - **Soporte de idiomas**: Cambio dinámico entre español e inglés
 - **Gestión de configuración**: Carga segura de propiedades de base de datos
-
-### Sistema Técnico
-- **Logging profesional**: Sistema completo con SLF4J/Logback, logs contextuales y rotación
-- **Internacionalización**: ResourceBundle con soporte para múltiples idiomas
-- **Gestión de configuración**: Clase `Propiedades` para carga segura desde classpath
-- **Modelo de datos robusto**: Clase `Person` con validaciones avanzadas
-- **Patrón DAO**: Separación clara de acceso a datos con `DaoPerson`
-- **Arquitectura modular**: MVC con documentación JavaDoc completa
-- **Manejo de errores**: Try-catch comprehensivo con logging detallado
-- **Ventana redimensionable**: Con límites mínimos (650×600) y máximos (900×900)
-
+  
 ## Estructura del Proyecto
 
 ```
@@ -63,7 +53,7 @@ src/main/java/es/wara/
 src/main/resources/
 ├── logback.xml                # Configuración avanzada de logging
 └── es/wara/
-    ├── configuration.properties  # 🚨 Configuración de BD (classpath)
+    ├── configuration.properties  # 🚨 Configuración de BD 🚨
     ├── texts.properties          # Textos base para i18n
     ├── texts_es.properties       # Textos en español (con únicos)
     ├── texts_en.properties       # Textos en inglés
@@ -152,22 +142,9 @@ La aplicación incluye un sistema de logging profesional configurado con **SLF4J
 - **`logs/PeopleViewApp-all.log`** - Todos los eventos (DEBUG, INFO, WARN, ERROR)
 - **`logs/PeopleViewApp-info.log`** - Solo eventos informativos y superiores (INFO, WARN, ERROR)
 
-### Características del Sistema de Logging:
-- **Logging contextual**: Cada operación CRUD se registra con detalles
-- **Múltiples niveles**: DEBUG para desarrollo, INFO para operaciones, WARN/ERROR para problemas
-- **Rotación automática**: Por tamaño (50MB-100MB por archivo)
-- **Histórico**: Conserva logs por 30 días
-- **Control de espacio**: Límite total de 500MB-1GB
-- **Formato estructurado**: Timestamp, nivel, clase, y mensaje detallado
-
-### Ejemplo de Logs:
-```
-2024-10-02 10:15:30 INFO  [TableViewController] - Iniciando controlador de tabla
-2024-10-02 10:15:35 DEBUG [DaoPerson] - Ejecutando consulta: SELECT * FROM persona
-2024-10-02 10:16:12 INFO  [TableViewController] - Persona agregada: Juan Pérez
 ```
 
-## Internacionalización (i18n)
+## Multilingue
 
 La aplicación soporta completamente **múltiples idiomas** utilizando el patrón ResourceBundle de Java:
 
@@ -176,7 +153,6 @@ La aplicación soporta completamente **múltiples idiomas** utilizando el patró
 - **Inglés**: Traducción completa de toda la interfaz
 
 ### Archivos de Recursos:
-- `texts.properties` - Textos base (fallback)
 - `texts_es.properties` - Textos en español con codificación Unicode
 - `texts_en.properties` - Textos en inglés
 
@@ -202,14 +178,6 @@ La aplicación soporta completamente **múltiples idiomas** utilizando el patró
 4. **Validaciones automáticas**: El sistema valida los datos y muestra mensajes de error localizados
 5. **Confirmaciones**: Todas las operaciones destructivas requieren confirmación del usuario
 
-### Validaciones Avanzadas
-- **Campos obligatorios**: Nombres y apellidos no pueden estar vacíos
-- **Validación temporal**: Las fechas de nacimiento no pueden ser futuras
-- **Consistencia de datos**: Verificación de integridad antes de operaciones
-- **Mensajes contextuales**: Errores y advertencias localizados según el idioma
-- **Confirmaciones de eliminación**: Prevención de pérdida accidental de datos
-- **Logging de validaciones**: Registro de todas las validaciones para auditoría
-
 ### Datos Predefinidos
 La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 - John Lennon (1940-10-09)
@@ -219,5 +187,4 @@ La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 
 ---
 
-
-*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue. Feliz revisión otoñal de ejercicios Israel 🎃🍂🍁*
+*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue. Feliz revisión de ejercicios Israel 🎃🍂🍁*

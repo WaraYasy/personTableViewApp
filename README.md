@@ -142,8 +142,6 @@ La aplicación incluye un sistema de logging profesional configurado con **SLF4J
 - **`logs/PeopleViewApp-all.log`** - Todos los eventos (DEBUG, INFO, WARN, ERROR)
 - **`logs/PeopleViewApp-info.log`** - Solo eventos informativos y superiores (INFO, WARN, ERROR)
 
-```
-
 ## Multilingue
 
 La aplicación soporta completamente **múltiples idiomas** utilizando el patrón ResourceBundle de Java:

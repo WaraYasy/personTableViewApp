@@ -12,7 +12,7 @@ La aplicación implementa una **agenda personal** con interfaz gráfica utilizan
 - Integrar sistema de logging profesional con **SLF4J** y **Logback**
 - Generar archivos **.jar ejecutables** con todas las dependencias
 - Crear una aplicación JavaFX bien estructurada siguiendo el patrón **Modelo-Vista-Controlador (MVC)**
-- Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'decálogo🤯🫨' 🙂‍↕️🙂‍↕️
+- Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'decálogo🤯🫨' 
 
 ## Características
 

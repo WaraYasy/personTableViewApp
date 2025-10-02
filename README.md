@@ -1,16 +1,15 @@
-# PeopleViewApp: Práctica con JavaFX, FXML y TableView
-
-Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
+# 🍂🍁PeopleViewApp: Práctica con JavaFX, FXML y TableView🍂🍁
 
 ## Descripción
 
-La aplicación implementa una **agenda personal** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con un **GridPane** como contenedor principal que organiza los controles de manera estructurada, y una **TableView** para mostrar y manipular una lista de personas. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
+La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo de **internacionalización (i18n)** en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
 
 ## Objetivos
 
 - Practicar el uso de **TableView** para visualización y manipulación de datos tabulares
 - Integrar sistema de logging profesional con **SLF4J** y **Logback**
 - Generar archivos **.jar ejecutables** con todas las dependencias
+- Conectarse a una base de datos Maria DB en un contenedor Docker
 - Crear una aplicación JavaFX bien estructurada siguiendo el patrón **Modelo-Vista-Controlador (MVC)**
 - Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'decálogo🤯🫨' 
 
@@ -18,26 +17,34 @@ La aplicación implementa una **agenda personal** con interfaz gráfica utilizan
 
 ### Interfaz Gráfica
 - **Diseño responsivo**: Interfaz construida con FXML y estilizada con CSS
+- **Internacionalización**: Soporte completo para español e inglés con ResourceBundle
 - **GridPane**: Contenedor principal que organiza elementos en cuadrícula de 3 columnas × 5 filas
 - **TableView**: Tabla principal para visualizar la lista de personas con selección múltiple
-- **Controles incluidos**: 
-  - Campos de texto para nombre y apellidos
+- **Controles multilingues**: 
+  - Campos de texto con prompts localizados
   - DatePicker para fecha de nacimiento
-  - Botones de acción (Add, Delete Selected Rows, Restore Rows)
-  - Tooltips informativos en todos los controles
+  - Botones de acción con textos traducidos
+  - Tooltips informativos localizados en todos los controles
+  - Mensajes de error y confirmación en el idioma seleccionado
 
 ### Funcionalidades
-- **Agregar personas**: Formulario con validación de campos obligatorios
-- **Eliminar registros**: Selección múltiple y eliminación segura de filas
+- **Agregar personas**: Formulario con validación de campos obligatorios y mensajes localizados
+- **Eliminar registros**: Selección múltiple y eliminación segura con confirmaciones
 - **Restaurar datos**: Restablece la tabla a su estado inicial con datos predefinidos
-- **Validación**: Control de datos vacíos y fechas futuras
-- **Alertas informativas**: Mensajes de error e información mediante cuadros de diálogo
+- **Validación avanzada**: Control de datos vacíos, fechas futuras y consistencia de datos
+- **Alertas multilingues**: Mensajes de error e información localizados
+- **Soporte de idiomas**: Cambio dinámico entre español e inglés
+- **Gestión de configuración**: Carga segura de propiedades de base de datos
 
 ### Sistema Técnico
-- **Logging avanzado**: Registra eventos de aplicación en múltiples niveles y archivos
-- **Modelo de datos**: Clase `Person` con validaciones y generación automática de IDs
-- **Arquitectura modular**: Separación clara entre modelo, vista y controlador
-- **Ventana redimensionable**: Con límites mínimos (800×600) y máximos (900×900)
+- **Logging profesional**: Sistema completo con SLF4J/Logback, logs contextuales y rotación
+- **Internacionalización**: ResourceBundle con soporte para múltiples idiomas
+- **Gestión de configuración**: Clase `Propiedades` para carga segura desde classpath
+- **Modelo de datos robusto**: Clase `Person` con validaciones avanzadas
+- **Patrón DAO**: Separación clara de acceso a datos con `DaoPerson`
+- **Arquitectura modular**: MVC con documentación JavaDoc completa
+- **Manejo de errores**: Try-catch comprehensivo con logging detallado
+- **Ventana redimensionable**: Con límites mínimos (650×600) y máximos (900×900)
 
 ## Estructura del Proyecto
 
@@ -54,22 +61,25 @@ src/main/java/es/wara/
     └── Person.java            # Modelo de datos de Persona
 
 src/main/resources/
-├── configuration.properties   # 🚨Configuración de base de datos
-├── logback.xml                # Configuración de logging
+├── logback.xml                # Configuración avanzada de logging
 └── es/wara/
+    ├── configuration.properties  # 🚨 Configuración de BD (classpath)
+    ├── texts.properties          # Textos base para i18n
+    ├── texts_es.properties       # Textos en español (con únicos)
+    ├── texts_en.properties       # Textos en inglés
     ├── fxml/
-    │   └── tableView.fxml     # Definición de la interfaz
+    │   └── tableView.fxml        # FXML
     ├── css/
-    │   └── style.css          # Estilos CSS
+    │   └── style.css             # Estilos CSS
     └── sql/
-        └── init.sql           # Script de inicialización de BD
+        └── init.sql              # Script de inicialización de BD
 ```
 
 ## Requisitos
 
 - **Java 11** o superior
 - **Maven 3.8** o superior
-- **MariaDB** para la base de datos)
+- **MariaDB** para la base de datos
 - **Dependencias gestionadas automáticamente** por Maven (ver `pom.xml`):
   - JavaFX Controls (21.0.5)
   - JavaFX FXML (21.0.5)
@@ -80,7 +90,7 @@ src/main/resources/
 ## Configuración de Base de Datos
 
 ### Archivo de Configuración
-La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/` con la siguiente estructura:
+La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
 
 ```properties
 # Configuración de Base de Datos
@@ -133,30 +143,72 @@ mvn javadoc:javadoc
 
 La documentación se generará en `target/apidocs/`.
 
-## Logging
+## Logging y Monitoreo
 
-La aplicación incluye un sistema de logging configurado con Logback que registra eventos en múltiples niveles:
+La aplicación incluye un sistema de logging profesional configurado con **SLF4J** y **Logback** que registra eventos detallados en múltiples niveles:
 
-- **Consola**: Mensajes de depuración durante el desarrollo
+### Archivos de Log:
+- **Consola**: Mensajes de depuración durante el desarrollo (DEBUG y superior)
 - **`logs/PeopleViewApp-all.log`** - Todos los eventos (DEBUG, INFO, WARN, ERROR)
-- **`logs/PeopleViewApp-info.log`** - Solo eventos informativos (INFO)
+- **`logs/PeopleViewApp-info.log`** - Solo eventos informativos y superiores (INFO, WARN, ERROR)
 
-### Configuración de logs:
-- Rotación automática por tamaño (50MB-100MB por archivo)
-- Histórico de 30 días
-- Límite total de espacio (500MB-1GB)
+### Características del Sistema de Logging:
+- **Logging contextual**: Cada operación CRUD se registra con detalles
+- **Múltiples niveles**: DEBUG para desarrollo, INFO para operaciones, WARN/ERROR para problemas
+- **Rotación automática**: Por tamaño (50MB-100MB por archivo)
+- **Histórico**: Conserva logs por 30 días
+- **Control de espacio**: Límite total de 500MB-1GB
+- **Formato estructurado**: Timestamp, nivel, clase, y mensaje detallado
+
+### Ejemplo de Logs:
+```
+2024-10-02 10:15:30 INFO  [TableViewController] - Iniciando controlador de tabla
+2024-10-02 10:15:35 DEBUG [DaoPerson] - Ejecutando consulta: SELECT * FROM persona
+2024-10-02 10:16:12 INFO  [TableViewController] - Persona agregada: Juan Pérez
+```
+
+## Internacionalización (i18n)
+
+La aplicación soporta completamente **múltiples idiomas** utilizando el patrón ResourceBundle de Java:
+
+### Idiomas Soportados:
+- **Español**: Idioma por defecto con soporte completo para caracteres especiales (ñ, á, é, í, ó, ú)
+- **Inglés**: Traducción completa de toda la interfaz
+
+### Archivos de Recursos:
+- `texts.properties` - Textos base (fallback)
+- `texts_es.properties` - Textos en español con codificación Unicode
+- `texts_en.properties` - Textos en inglés
+
+### Elementos Localizados:
+- **Etiquetas de interfaz**: Botones, campos, títulos
+- **Mensajes de validación**: Errores y advertencias
+- **Tooltips**: Ayuda contextual
+- **Mensajes de confirmación**: Diálogos y alertas
+- **Prompts de campos**: Textos de ayuda en formularios
+
+### Características Técnicas:
+- **Carga dinámica**: El idioma se determina automáticamente por la configuración del sistema
+- **Codificación Unicode**: Soporte completo para caracteres especiales (\u00f1 para ñ)
+- **Referencias FXML**: Uso de `%key` para carga automática de textos
+- **Fallback inteligente**: Si falta una traducción, usa el texto base
 
 ## Funcionalidades Detalladas
 
 ### Gestión de Personas
-1. **Agregar**: Completa los campos de nombre, apellido y fecha de nacimiento, luego presiona "Add"
-2. **Eliminar**: Selecciona una o múltiples filas en la tabla y presiona "Delete Selected Rows"
-3. **Restaurar**: Presiona "Restore Rows" para volver a los datos iniciales (✨The Beatles ✨)
+1. **Agregar**: Completa los campos localizados de nombre, apellido y fecha de nacimiento, luego presiona el botón "Añadir"/"Add"
+2. **Eliminar**: Selecciona una o múltiples filas en la tabla y presiona "Eliminar Seleccionadas"/"Delete Selected Rows"
+3. **Restaurar**: Presiona "Restaurar Filas"/"Restore Rows" para volver a los datos iniciales (✨The Beatles ✨)
+4. **Validaciones automáticas**: El sistema valida los datos y muestra mensajes de error localizados
+5. **Confirmaciones**: Todas las operaciones destructivas requieren confirmación del usuario
 
-### Validaciones
-- Nombres y apellidos no pueden estar vacíos
-- Las fechas de nacimiento no pueden ser futuras
-- Mensajes de error informativos para guiar al usuario
+### Validaciones Avanzadas
+- **Campos obligatorios**: Nombres y apellidos no pueden estar vacíos
+- **Validación temporal**: Las fechas de nacimiento no pueden ser futuras
+- **Consistencia de datos**: Verificación de integridad antes de operaciones
+- **Mensajes contextuales**: Errores y advertencias localizados según el idioma
+- **Confirmaciones de eliminación**: Prevención de pérdida accidental de datos
+- **Logging de validaciones**: Registro de todas las validaciones para auditoría
 
 ### Datos Predefinidos
 La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
@@ -167,4 +219,5 @@ La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 
 ---
 
-*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML y TableView. Feliz revisión otoñal de ejercicios Israel 🎃🍂🍁*
+
+*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue. Feliz revisión otoñal de ejercicios Israel 🎃🍂🍁*

@@ -13,29 +13,29 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * Controlador para la gestión de personas en una interfaz JavaFX basada en TableView.
+ * Controlador JavaFX para gestión de personas con soporte multilingüe.
  * <p>
- * Esta clase gestiona la visualización y manipulación de una lista de personas.
+ * Maneja operaciones CRUD (Create, Read, Delete) y restauración de datos
+ * en una interfaz basada en TableView con internacionalización.
  * </p>
  *
- * <h2>Gestión de errores:</h2>
+ * <h3>Funcionalidades principales:</h3>
  * <ul>
- *   <li>Logging completo de todas las operaciones</li>
- *   <li>Alertas informativas para el usuario</li>
- *   <li>Manejo seguro de errores de base de datos</li>
+ *   <li>Añadir nuevas personas con validación</li>
+ *   <li>Eliminar personas seleccionadas</li>
+ *   <li>Restaurar datos básicos (The Beatles)</li>
+ *   <li>Soporte multilingüe con ResourceBundle</li>
  * </ul>
  *
  * @author Wara Pacheco
- * @version 1.3
- * @since 2025-09-25
+ * @version 2.0
+ * @since 2025-10-02
  * @see Person
  * @see DaoPerson
- * @see javafx.scene.control.TableView
  */
 public class TableViewController {
 
@@ -87,18 +87,23 @@ public class TableViewController {
     @FXML
     private TableColumn<Person, LocalDate> colBirthDate;
 
-    /** Lista Observable que contiene todas las personas cargadas desde la base de datos. */
+    /** Lista observable con todas las personas de la base de datos. */
     private ObservableList<Person> allThePeople;
 
+    /** Resource bundle para internacionalización. */
     private ResourceBundle bundle;
 
-    /** Logger para registrar eventos y depuración del controlador. */
+    /** Logger para eventos y depuración. */
     private static final Logger loger = LoggerFactory.getLogger(TableViewController.class);
 
     /**
-     * Inicializa el controlador y configura la tabla de personas tras cargar el archivo FXML.
+     * Inicializa el controlador después de cargar el FXML.
      * <p>
-     * Este método es llamado automáticamente por JavaFX después de cargar el archivo FXML
+     * Configura las columnas de la tabla, carga los datos iniciales
+     * y establece el resource bundle para internacionalización.
+     * </p>
+     *
+     * @apiNote Llamado automáticamente por JavaFX tras cargar el FXML
      * y antes de mostrar la interfaz al usuario.
      * </p>
      *
@@ -109,10 +114,12 @@ public class TableViewController {
      */
     @FXML
     public void initialize() {
-        Locale locale = Locale.forLanguageTag("en");
+        // Configurar internacionalización
+        Locale locale = Locale.forLanguageTag("es");
         bundle = ResourceBundle.getBundle("es.wara.texts", locale);
+        loger.debug("Resource bundle configurado para locale: {}", locale);
 
-        // Cargar lista inicial de personas en la tabla
+        // Cargar datos iniciales
         allThePeople = DaoPerson.fillTable();
         tablePerson.setItems(allThePeople);
         loger.debug("Lista inicial cargada con {} personas", allThePeople.size());
@@ -120,45 +127,34 @@ public class TableViewController {
         // Configurar selección múltiple
         TableView.TableViewSelectionModel<Person> tsm = tablePerson.getSelectionModel();
         tsm.setSelectionMode(SelectionMode.MULTIPLE);
+        loger.debug("Modo de selección múltiple configurado");
 
-        // Configurar las columnas para mostrar las propiedades de Person
+        // Configurar columnas de la tabla
         colPersonId.setCellValueFactory(new PropertyValueFactory<>("personId"));
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        loger.debug("Columnas de tabla configuradas exitosamente");
     }
 
     /**
-     * Agrega una nueva persona a la tabla utilizando los datos ingresados en el formulario.
+     * Añade una nueva persona a la tabla con validación de datos.
      * <p>
-     * Este método realiza una validación completa de los datos ingresados por el usuario
-     * antes de persistir la información en la base de datos. Utiliza el patrón de validación
-     * del modelo {@link Person} para garantizar la integridad de los datos.
+     * Valida los campos obligatorios, verifica la fecha de nacimiento
+     * y persiste la información en la base de datos.
      * </p>
-     * 
-     * <h3>Validaciones aplicadas:</h3>
-     * <ul>
-     *   <li>Nombre: requerido, no puede estar vacío</li>
-     *   <li>Apellido: requerido, no puede estar vacío</li>
-     *   <li>Fecha nacimiento: opcional, pero no puede ser futura</li>
-     * </ul>
-     * 
-     * @see Person#Person(String, String, LocalDate)
-     * @see Person#isValidPerson
-     * @see DaoPerson#addPerson(Person)
-     * @see #clearFields()
-     * @see #mostrarAlertError(Window, String)
-     * @see #mostrarAlertInfo(Window, String)
      */
     @FXML
     public void addPerson() {
         try {
-            // Obtener valores de los campos de entrada
+            loger.info("Iniciando proceso de agregar nueva persona");
+            
+            // Obtener valores de los campos
             String firstName = txtFirstName.getText();
-            String lastName = txtLastName.getText();
+            String lastName = txtLastName.getText();  
             LocalDate birthDate = dateBirth.getValue();
 
-            // Validación básica de campos obligatorios
+            // Validaciones básicas
             if (firstName == null || firstName.trim().isEmpty()) {
                 mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingFirstName"));
                 return;
@@ -167,7 +163,8 @@ public class TableViewController {
                 mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingLastName"));
                 return;
             }
-            // Crear nueva persona y agregar a la tabla
+            
+            // Crear y validar nueva persona
             Person newPerson = new Person(firstName.trim(), lastName.trim(), birthDate);
             if(newPerson.isValidBirthDate(birthDate)){
                 boolean success = DaoPerson.addPerson(newPerson);
@@ -184,7 +181,6 @@ public class TableViewController {
                 mostrarAlertError(btnAdd.getScene().getWindow(), mensaje);
             }
 
-            // Limpiar campos para la siguiente entrada
             clearFields();
         } catch (Exception e) {
             loger.error("Error al agregar nueva persona: {}", e.getMessage(), e);
@@ -208,20 +204,20 @@ public class TableViewController {
     public void deleteSelectedRows() {
         TableView.TableViewSelectionModel<Person> tsm = tablePerson.getSelectionModel();
 
-        // Validar que hay filas seleccionadas
+        loger.info("Iniciando eliminación de filas seleccionadas");
+        
+        // Validar selección
         if (tsm.isEmpty()) {
             mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
             return;
         }
 
         try {
-            // Obtener índices seleccionados y ordenarlos
+            // Obtener índices seleccionados
             ObservableList<Integer> selectedIndicesList = tsm.getSelectedIndices();
-            // Convertir a array y ordenar
             Integer[] selectedIndices = selectedIndicesList.toArray(new Integer[0]);
             Arrays.sort(selectedIndices);
-
-            loger.info("Eliminando {} filas seleccionadas: {}", selectedIndices.length, Arrays.toString(selectedIndices));
+            loger.info("Eliminando {} personas seleccionadas", selectedIndices.length);
 
             // Eliminar en orden inverso para preservar índices
             for (int i = selectedIndices.length - 1; i >= 0; i--) {
@@ -308,6 +304,7 @@ public class TableViewController {
      * @see javafx.scene.control.DatePicker#
      */
     private void clearFields() {
+        loger.debug("Limpiando campos del formulario");
         txtFirstName.clear();
         txtLastName.clear();
         dateBirth.setValue(null);
@@ -346,11 +343,8 @@ public class TableViewController {
      * el resultado exitoso de operaciones o información relevante.
      * </p>
      * 
-     * @param win     Ventana propietaria del diálogo (usualmente la ventana principal)
-     * @param mensaje Texto informativo a mostrar al usuario
-     * 
-     * @see javafx.scene.control.Alert
-     * @see javafx.scene.control.Alert.AlertType#INFORMATION
+     * @param win Ventana propietaria
+     * @param mensaje Mensaje informativo
      */
     private void mostrarAlertInfo(Window win, String mensaje) {
         loger.info(mensaje);

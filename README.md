@@ -1,4 +1,4 @@
-# 🍂🍁PeopleViewApp: Práctica con JavaFX, FXML y TableView🍂🍁
+# 🍂🍁PeopleViewApp - Versión Síncrona - Práctica con JavaFX, FXML, Maria DB y TableView🍂🍁
 
 Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
 

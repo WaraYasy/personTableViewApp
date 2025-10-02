@@ -23,3 +23,150 @@
 2025-10-02 12:59:06 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
 2 persona(s) eliminada(s).
 Total restante: 4
+2025-10-02 14:02:39 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:02:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:05:39 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:05:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:05:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:07:18 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:07:18 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:08:22 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:08:22 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:09:12 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:09:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:13:00 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:13:00 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:13:01 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:13:25 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:13:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:13:26 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:33:15 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:33:15 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:33:52 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:33:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:33:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:45:11 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:45:11 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:45:11 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:45:12 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:45:12 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:45:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:45:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:45:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:45:15 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Intento de eliminar filas sin tener ninguna seleccionada
+2025-10-02 14:49:31 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:49:31 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:49:31 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:49:32 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:32 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:32 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:49:32 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:49:32 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:49:42 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:42 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:42 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:42 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:42 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente: Person ID: 6, First Name: w, Last Name: s, Birth Date: null
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando restauración de la tabla a los datos básicos originales
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:46 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Tabla restaurada exitosamente a los datos básicos originales.
+Anteriormente: 6 personas.
+Ahora: 4 personas (The Beatles).
+Datos restaurados: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
+2025-10-02 14:49:49 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Intento de eliminar filas sin tener ninguna seleccionada
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando restauración de la tabla a los datos básicos originales
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:49:52 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Tabla restaurada exitosamente a los datos básicos originales.
+Anteriormente: 4 personas.
+Ahora: 4 personas (The Beatles).
+Datos restaurados: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
+2025-10-02 14:57:24 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:57:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:57:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:57:26 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Intento de eliminar filas sin tener ninguna seleccionada
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando restauración de la tabla a los datos básicos originales
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:57:29 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Table successfully restored to original basic data.
+Previously: 4 people.
+Now: 4 people (The Beatles).
+Restored data: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
+2025-10-02 14:57:34 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Intento de eliminar filas sin tener ninguna seleccionada
+2025-10-02 14:58:26 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 14:58:26 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 14:58:27 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 14:58:28 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Attempt to delete rows without having any selected
+2025-10-02 15:00:36 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 15:00:36 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 15:00:38 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Attempt to delete rows without having any selected
+2025-10-02 15:02:09 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-02 15:02:09 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-02 15:02:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-02 15:02:12 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Attempt to delete rows without having any selected

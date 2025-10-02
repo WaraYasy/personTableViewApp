@@ -20,14 +20,6 @@ import java.time.LocalDate;
  * en la base de datos MariaDB.
  * </p>
  * 
- * <h2>Operaciones soportadas:</h2>
- * <ul>
- *   <li><b>Create:</b> Inserción de nuevas personas ({@link #addPerson(Person)})</li>
- *   <li><b>Read:</b> Consulta y carga de todas las personas ({@link #fillTable()})</li>
- *   <li><b>Delete:</b> Eliminación de personas existentes ({@link #deletePerson(Person)})</li>
- *   <li><b>Restore:</b> Restauración de datos básicos ({@link #restoreBasicData()})</li>
- * </ul>
- * 
  * @author Wara Pacheco
  * @version 1.0
  * @since 2025-10-01
@@ -57,12 +49,14 @@ public class DaoPerson {
      * @see ConectionDB#ConectionDB()
      */
     public static ObservableList<Person> fillTable(){
+        loger.info("Iniciando carga de todas las personas desde la base de datos");
         ConectionDB connection;
         ObservableList<Person> lstPerson= FXCollections.observableArrayList();
         try {
             connection = new ConectionDB();
             String consulta = "SELECT personId,firstName,lastName,birthDate FROM personas";
             PreparedStatement pstmt = connection.getConnection().prepareStatement(consulta);
+            loger.debug("Ejecutando consulta: {}", consulta);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("personId");
@@ -82,8 +76,9 @@ public class DaoPerson {
             rs.close();
             pstmt.close();
             connection.closeConnection();
+            loger.info("Carga completada exitosamente. {} personas obtenidas", lstPerson.size());
         } catch (SQLException e) {
-            e.printStackTrace();
+            loger.error("Error al cargar personas desde la base de datos: {}", e.getMessage(), e);
         }
         return lstPerson;
     }
@@ -102,6 +97,7 @@ public class DaoPerson {
      * @see ConectionDB#ConectionDB()
      */
     public static boolean deletePerson(Person personToDelete) {
+        loger.info("Iniciando eliminación de persona con ID: {}", personToDelete.getPersonId());
         ConectionDB connection;
         int filasEliminadas =0;
         try {
@@ -109,11 +105,18 @@ public class DaoPerson {
             String sql ="DELETE FROM personas WHERE personId=? ";
             PreparedStatement pstmt =connection.getConnection().prepareStatement(sql);
             pstmt.setInt(1,personToDelete.getPersonId());
+            loger.debug("Ejecutando eliminación para persona: {} {}", personToDelete.getFirstName(), personToDelete.getLastName());
             filasEliminadas = pstmt.executeUpdate();
             pstmt.close();
             connection.closeConnection();
+            
+            if (filasEliminadas > 0) {
+                loger.info("Persona eliminada exitosamente. ID: {}", personToDelete.getPersonId());
+            } else {
+                loger.warn("No se encontró ninguna persona con ID: {} para eliminar", personToDelete.getPersonId());
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            loger.error("Error al eliminar persona con ID {}: {}", personToDelete.getPersonId(), e.getMessage(), e);
         }
         return filasEliminadas >0;
     }
@@ -141,6 +144,7 @@ public class DaoPerson {
      * @see ConectionDB#ConectionDB()
      */
     public static boolean addPerson(Person personaAdd){
+        loger.info("Iniciando inserción de nueva persona: {} {}", personaAdd.getFirstName(), personaAdd.getLastName());
         ConectionDB connection;
         int exito=0;
         try {
@@ -154,11 +158,20 @@ public class DaoPerson {
             String birthDateStr = (personaAdd.getBirthDate() != null) ? 
                                   personaAdd.getBirthDate().toString() : null;
             pstmt.setString(3, birthDateStr);
+            loger.debug("Ejecutando inserción: {} {} - Fecha: {}", 
+                       personaAdd.getFirstName(), personaAdd.getLastName(), birthDateStr);
             exito=pstmt.executeUpdate();
             pstmt.close();
             connection.closeConnection();
+            
+            if (exito > 0) {
+                loger.info("Persona añadida exitosamente: {} {}", personaAdd.getFirstName(), personaAdd.getLastName());
+            } else {
+                loger.warn("No se pudo insertar la persona: {} {}", personaAdd.getFirstName(), personaAdd.getLastName());
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            loger.error("Error al añadir persona {} {}: {}", 
+                       personaAdd.getFirstName(), personaAdd.getLastName(), e.getMessage(), e);
         }
         return exito>0;
     }
@@ -170,17 +183,20 @@ public class DaoPerson {
      * @return true si la operación fue exitosa, false en caso contrario
      */
     public static boolean restoreBasicData() {
+        loger.info("Iniciando restauración de datos básicos de The Beatles");
         ConectionDB connection = null;
         try {
             connection = new ConectionDB();
             
             // Operación en una sola transacción para robustez
             connection.getConnection().setAutoCommit(false);
+            loger.debug("Iniciando transacción para restauración de datos");
             
             // Limpiar tabla y reiniciar auto_increment
             PreparedStatement deleteStmt = connection.getConnection().prepareStatement("DELETE FROM personas");
-            deleteStmt.executeUpdate();
+            int deletedRows = deleteStmt.executeUpdate();
             deleteStmt.close();
+            loger.debug("Eliminadas {} filas existentes", deletedRows);
             
             PreparedStatement resetStmt = connection.getConnection().prepareStatement("ALTER TABLE personas AUTO_INCREMENT = 1");
             resetStmt.executeUpdate();
@@ -196,23 +212,26 @@ public class DaoPerson {
             PreparedStatement insertStmt = connection.getConnection().prepareStatement(insertQuery);
             int insertedRows = insertStmt.executeUpdate();
             insertStmt.close();
+            loger.debug("Insertados {} registros de The Beatles", insertedRows);
             
             // Confirmar transacción
             connection.getConnection().commit();
             connection.closeConnection();
             
+            loger.info("Restauración completada exitosamente. {} registros de The Beatles insertados", insertedRows);
             return insertedRows == 4;
             
         } catch (SQLException e) {
+            loger.error("Error durante la restauración de datos básicos: {}", e.getMessage(), e);
             // Rollback en caso de error
             try {
                 if (connection != null && connection.getConnection() != null) {
                     connection.getConnection().rollback();
+                    loger.debug("Rollback ejecutado exitosamente");
                 }
             } catch (SQLException rollbackEx) {
-                // Log del rollback si falla
+                loger.error("Error al ejecutar rollback: {}", rollbackEx.getMessage(), rollbackEx);
             }
-            e.printStackTrace();
             if (connection != null) {
                 connection.closeConnection();
             }

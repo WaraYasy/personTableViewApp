@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Controlador para la gestión de personas en una interfaz JavaFX basada en TableView.
@@ -88,6 +90,8 @@ public class TableViewController {
     /** Lista Observable que contiene todas las personas cargadas desde la base de datos. */
     private ObservableList<Person> allThePeople;
 
+    private ResourceBundle bundle;
+
     /** Logger para registrar eventos y depuración del controlador. */
     private static final Logger loger = LoggerFactory.getLogger(TableViewController.class);
 
@@ -105,6 +109,9 @@ public class TableViewController {
      */
     @FXML
     public void initialize() {
+        Locale locale = Locale.forLanguageTag("en");
+        bundle = ResourceBundle.getBundle("es.wara.texts", locale);
+
         // Cargar lista inicial de personas en la tabla
         allThePeople = DaoPerson.fillTable();
         tablePerson.setItems(allThePeople);
@@ -137,7 +144,7 @@ public class TableViewController {
      * </ul>
      * 
      * @see Person#Person(String, String, LocalDate)
-     * @see Person#isValidPerson(List)
+     * @see Person#isValidPerson
      * @see DaoPerson#addPerson(Person)
      * @see #clearFields()
      * @see #mostrarAlertError(Window, String)
@@ -153,13 +160,11 @@ public class TableViewController {
 
             // Validación básica de campos obligatorios
             if (firstName == null || firstName.trim().isEmpty()) {
-                loger.error("Intento de agregar persona con nombre vacío");
-                mostrarAlertError(btnAdd.getScene().getWindow(), "Debes introducir el nombre de la persona.");
+                mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingFirstName"));
                 return;
             }
             if (lastName == null || lastName.trim().isEmpty()) {
-                loger.error("Intento de agregar persona con apellido vacío");
-                mostrarAlertError(btnAdd.getScene().getWindow(), "Debes introducir los apellidos de la persona.");
+                mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingLastName"));
                 return;
             }
             // Crear nueva persona y agregar a la tabla
@@ -169,16 +174,13 @@ public class TableViewController {
                 if (success) {
                     allThePeople = DaoPerson.fillTable();
                     tablePerson.setItems(allThePeople);
-                    loger.info("Persona agregada exitosamente: {}", newPerson);
+                    String mensaje = bundle.getString("successAddPerson");
                     mostrarAlertInfo(btnAdd.getScene().getWindow(), "Persona agregada correctamente.");
                 } else {
-                    loger.error("Error al agregar persona: {}", newPerson);
-                    mostrarAlertError(btnAdd.getScene().getWindow(), "Error al agregar la persona a la base de datos.");
+                    mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorAddPerson"));
                 }
             }else{
-                String mensaje = "No es posible añadir una fecha de nacimiento mayor a la actual." +
-                        "\n Error:"+birthDate;
-                loger.error(mensaje);
+                String mensaje = bundle.getString("errorBirthDate")+birthDate;
                 mostrarAlertError(btnAdd.getScene().getWindow(), mensaje);
             }
 
@@ -208,8 +210,7 @@ public class TableViewController {
 
         // Validar que hay filas seleccionadas
         if (tsm.isEmpty()) {
-            loger.info("Intento de eliminar filas sin tener ninguna seleccionada");
-            mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), "No hay celdas seleccionadas.");
+            mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
             return;
         }
 
@@ -240,8 +241,9 @@ public class TableViewController {
                 }
             }
 
-            String mensaje = "Eliminación exitosa.\n" + selectedIndices.length + " persona(s) eliminada(s).\nTotal restante: " + tablePerson.getItems().size();
-            loger.info(mensaje);
+            String mensaje = String.format(bundle.getString("deleteSuccessMessage"),
+                    selectedIndices.length,
+                    tablePerson.getItems().size());
             mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), mensaje);
 
         } catch (Exception e) {
@@ -278,22 +280,18 @@ public class TableViewController {
                 allThePeople = DaoPerson.fillTable();
                 tablePerson.setItems(allThePeople);
 
-                String mensaje = "Tabla restaurada exitosamente a los datos básicos originales.\n" +
-                        "Anteriormente: " + currentSize + " personas.\n" +
-                        "Ahora: " + allThePeople.size() + " personas (The Beatles).\n" +
-                        "Datos restaurados: John Lennon, Paul McCartney, George Harrison, Ringo Starr.";
-                loger.info(mensaje);
+                String mensaje = bundle.getString("restoreSuccessTitle") + "\n" +
+                        String.format(bundle.getString("restoreSuccessPrevious"), currentSize) + "\n" +
+                        String.format(bundle.getString("restoreSuccessNow"), allThePeople.size()) + "\n" +
+                        bundle.getString("restoreSuccessData");
                 mostrarAlertInfo(btnRestoreRows.getScene().getWindow(), mensaje);
             } else {
-                String errorMsg = "Error al restaurar los datos básicos en la base de datos.";
-                loger.error(errorMsg);
-                mostrarAlertError(btnRestoreRows.getScene().getWindow(), errorMsg);
+                mostrarAlertError(btnRestoreRows.getScene().getWindow(), bundle.getString("errorRestore"));
             }
 
         } catch (Exception e) {
-            loger.error("Error durante la restauración de la tabla: {}", e.getMessage(), e);
-            mostrarAlertError(btnRestoreRows.getScene().getWindow(), 
-                "Error inesperado durante la restauración: " + e.getMessage());
+            String mensaje = bundle.getString("errorRestore2")+e.getMessage();
+            mostrarAlertError(btnRestoreRows.getScene().getWindow(), mensaje);
         }
     }
 
@@ -307,7 +305,7 @@ public class TableViewController {
      * 
      * @see #addPerson()
      * @see javafx.scene.control.TextField#clear()
-     * @see javafx.scene.control.DatePicker#setValue(Object)
+     * @see javafx.scene.control.DatePicker#
      */
     private void clearFields() {
         txtFirstName.clear();
@@ -332,6 +330,7 @@ public class TableViewController {
      */
 
     private void mostrarAlertError(Window win, String mensaje) {
+        loger.error(mensaje);
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initOwner(win);
         alert.setHeaderText(null);
@@ -354,6 +353,7 @@ public class TableViewController {
      * @see javafx.scene.control.Alert.AlertType#INFORMATION
      */
     private void mostrarAlertInfo(Window win, String mensaje) {
+        loger.info(mensaje);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initOwner(win);
         alert.setHeaderText(null);

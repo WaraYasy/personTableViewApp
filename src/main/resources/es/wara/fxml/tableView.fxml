@@ -26,42 +26,42 @@
       <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label styleClass="labelTable" text="First Name:" />
-      <Label styleClass="labelTable" text="Last Name:" GridPane.rowIndex="1" />
-      <Label styleClass="labelTable" text="Birth Date:" GridPane.rowIndex="2" />
-      <TextField fx:id="txtFirstName" promptText="Indroduce el nombre.." GridPane.columnIndex="1">
+      <Label styleClass="labelTable" text="%labelFirstName" />
+      <Label styleClass="labelTable" text="%labelLastName" GridPane.rowIndex="1" />
+      <Label styleClass="labelTable" text="%LabelBirthDate" GridPane.rowIndex="2" />
+      <TextField fx:id="txtFirstName" promptText="%promptTextFirstName" GridPane.columnIndex="1">
          <tooltip>
-            <Tooltip text="Campo Obligatorio" />
+            <Tooltip text="%toolTipCampoObligatorio" />
          </tooltip></TextField>
-      <TextField fx:id="txtLastName" promptText="Introduce los apellidos.." GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="txtLastName" promptText="%promptTextLastName" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <tooltip>
-            <Tooltip text="Campo Obligatorio" />
+            <Tooltip text="%toolTipCampoObligatorio" />
          </tooltip></TextField>
       <DatePicker fx:id="dateBirth" editable="true" prefHeight="26.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
          <tooltip>
-            <Tooltip text="Campo Opcional" />
+            <Tooltip text="%toolTipCampoOpcional" />
          </tooltip></DatePicker>
-      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" styleClass="addPerson" text="Add" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
+      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addPerson" styleClass="addPerson" text="%btnAdd" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
          <tooltip>
-            <Tooltip text="Añadir nueva persona" />
+            <Tooltip text="%toolTipAdd" />
          </tooltip>
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Button>
-      <Button fx:id="btnRestoreRows" mnemonicParsing="false" onAction="#restoreRows" text="Restore Rows" GridPane.rowIndex="3">
+      <Button fx:id="btnRestoreRows" mnemonicParsing="false" onAction="#restoreRows" text="%btnRestore" GridPane.rowIndex="3">
          <tooltip>
-            <Tooltip text="Regresan las lineas originales" />
+            <Tooltip text="%toolTipRestore" />
          </tooltip></Button>
-      <Button fx:id="btnDeleteRows" mnemonicParsing="false" onAction="#deleteSelectedRows" text="Delete Selected Rows" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button fx:id="btnDeleteRows" mnemonicParsing="false" onAction="#deleteSelectedRows" text="%btnDeleteRows" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <tooltip>
-            <Tooltip text="Elimina lineas seleccionadas" />
+            <Tooltip text="%toolTipDelete" />
          </tooltip></Button>
       <TableView fx:id="tablePerson" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
         <columns>
-          <TableColumn fx:id="colPersonId" prefWidth="60.0" text="ID" />
-          <TableColumn fx:id="colFirstName" prefWidth="180.0" text="First Name" />
-            <TableColumn fx:id="colLastName" prefWidth="180.0" text="Last Name" />
-            <TableColumn fx:id="colBirthDate" prefWidth="180.0" text="Bith Date" />
+          <TableColumn fx:id="colPersonId" prefWidth="60.0" text="%colPersonId" />
+          <TableColumn fx:id="colFirstName" prefWidth="180.0" text="%colFirstName" />
+            <TableColumn fx:id="colLastName" prefWidth="180.0" text="%colLastName" />
+            <TableColumn fx:id="colBirthDate" prefWidth="180.0" text="%colBirthDate" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

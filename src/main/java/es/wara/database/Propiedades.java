@@ -5,12 +5,32 @@ import org.slf4j.LoggerFactory;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Clase utilitaria para cargar y acceder a propiedades de configuración.
+ * <p>
+ * Carga automáticamente el archivo {@code configuration.properties} desde el classpath
+ * y proporciona acceso a los valores de configuración de la base de datos.
+ * </p>
+ *
+ * @author Wara
+ * @version 1.0
+ * @since 2025-10-02
+ */
 public abstract class Propiedades{
+    
+    /** Objeto Properties que contiene las propiedades cargadas del archivo de configuración. */
     private static Properties props = new Properties();
-    /** Logger para registrar eventos y depuración del controlador. */
+    
+    /** Logger para registrar eventos y depuración de la carga de propiedades. */
     private static final Logger loger = LoggerFactory.getLogger(Propiedades.class);
 
-
+    /**
+     * Bloque estático que se ejecuta al cargar la clase.
+     * <p>
+     * Carga automáticamente el archivo {@code configuration.properties} desde el classpath
+     * ubicado en {@code es/wara/configuration.properties}.
+     * </p>
+     */
     static{
         try {
             // Usar getResourceAsStream que es más confiable para archivos en el classpath
@@ -43,6 +63,13 @@ public abstract class Propiedades{
         }
     }
 
+    /**
+     * Obtiene el valor de una propiedad específica.
+     *
+     * @param clave La clave de la propiedad a buscar
+     * @return El valor de la propiedad como String, sin espacios en blanco al inicio y final
+     * @throws RuntimeException Si la clave no existe o está vacía
+     */
     public static String getValor(String clave) {
         String valor = props.getProperty(clave);
         if(valor != null && !valor.trim().isEmpty()) {

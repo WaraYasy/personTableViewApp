@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Clase principal de la aplicación JavaFX.
@@ -45,14 +47,18 @@ public class PeopleViewApp extends Application {
     public void start(Stage stage) throws IOException {
         loger.info("Iniciando aplicación JavaFX - PeopleViewApp");
 
+        //Locale locale = Locale.forLanguageTag("en");
+        Locale locale = Locale.forLanguageTag("es");
+        ResourceBundle bundle = ResourceBundle.getBundle("es.wara.texts", locale);
+
         // Cargar archivo FXML con la definición de la interfaz
         loger.debug("Cargando archivo FXML: fxml/tableView.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(PeopleViewApp.class.getResource("fxml/tableView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PeopleViewApp.class.getResource("fxml/tableView.fxml"),bundle);
         scene = new Scene(fxmlLoader.load());
         loger.info("Archivo FXML cargado exitosamente");
 
         // Configurar título de la ventana
-        stage.setTitle("Agenda Personal");
+        stage.setTitle(bundle.getString("title"));
 
         // Cargar y aplicar estilos CSS
         loger.debug("Cargando hoja de estilos CSS..");
@@ -62,7 +68,7 @@ public class PeopleViewApp extends Application {
 
         // Configurar escena y dimensiones en el escenario
         stage.setScene(scene);
-        stage.setMinWidth(600);
+        stage.setMinWidth(650);
         stage.setMinHeight(600);
         stage.setMaxWidth(900);
         stage.setMaxHeight(900);

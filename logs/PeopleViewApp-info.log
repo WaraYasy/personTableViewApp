@@ -240,3 +240,21 @@ Restored data: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
 2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 5 personas obtenidas
 2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
 2025-10-02 16:07:57 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===
+2025-10-02 16:18:37 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:18:37 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 5 personas obtenidas
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:18:38 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===
+2025-10-02 16:25:16 [main] INFO  es.wara.PeopleViewApp - === INICIANDO PEOPLE VIEW APP ===
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 5 personas obtenidas
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Interfaz FXML cargada exitosamente
+2025-10-02 16:25:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - === PeopleViewApp iniciada correctamente ===

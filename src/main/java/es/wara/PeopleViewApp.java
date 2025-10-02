@@ -77,7 +77,7 @@ public class PeopleViewApp extends Application {
         stage.setScene(scene);
         stage.setMinWidth(650);
         stage.setMinHeight(600);
-        stage.setMaxWidth(900);
+        stage.setMaxWidth(1000);
         stage.setMaxHeight(900);
         loger.debug("Ventana configurada - Dimensiones: 650x600 - 900x900");
 

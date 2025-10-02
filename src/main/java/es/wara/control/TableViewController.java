@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
  * en una interfaz basada en TableView con internacionalización.
  * </p>
  *
- * <h3>Funcionalidades principales:</h3>
+ * <h2>Funcionalidades principales:</h2>
  * <ul>
  *   <li>Añadir nuevas personas con validación</li>
  *   <li>Eliminar personas seleccionadas</li>
@@ -103,11 +103,6 @@ public class TableViewController {
      * y establece el resource bundle para internacionalización.
      * </p>
      *
-     * @apiNote Llamado automáticamente por JavaFX tras cargar el FXML
-     * y antes de mostrar la interfaz al usuario.
-     * </p>
-     *
-     * 
      * @see DaoPerson#fillTable()
      * @see javafx.scene.control.TableView.TableViewSelectionModel
      * @see javafx.scene.control.cell.PropertyValueFactory

@@ -1,8 +1,10 @@
 # 🍂🍁PeopleViewApp: Práctica con JavaFX, FXML y TableView🍂🍁
 
+Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
+
 ## Descripción
 
-La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo de **internacionalización (i18n)** en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
+La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
 
 ## Objetivos
 
@@ -53,7 +55,7 @@ src/main/java/es/wara/
 src/main/resources/
 ├── logback.xml                # Configuración avanzada de logging
 └── es/wara/
-    ├── configuration.properties  # 🚨 Configuración de BD 🚨
+    ├── configuration.properties  # 🚨Configuración de BD 🚨
     └── Resource Bundle 'texts'
     │    ├── texts_es.properties       # Textos en español (con únicos)
     │    └── texts_en.properties       # Textos en inglés

@@ -15,7 +15,6 @@ module es.wara {
     requires javafx.base;
     requires org.mariadb.jdbc;
 
-
     // Permitir acceso por reflexión para JavaFX
     opens es.wara to javafx.fxml;
     opens es.wara.control to javafx.fxml;

@@ -3,13 +3,9 @@ package es.wara.database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  * Clase de gestión de conexiones a la base de datos MariaDB.
@@ -52,16 +48,14 @@ public class ConectionDB {
      * </p>
      * 
      * @throws SQLException si ocurre un error durante el establecimiento de la conexión
-     * @see #loadProperties()
      */
     public ConectionDB() throws SQLException{
         try {
-            Properties propiedades = loadProperties();
-            String host = propiedades.getProperty("host");
-            String user = propiedades.getProperty("user");
-            String pass = propiedades.getProperty("pass");
-            String port = propiedades.getProperty("port");
-            String database = propiedades.getProperty("database");
+            String host = Propiedades.getValor("host");
+            String user = Propiedades.getValor("user");
+            String pass = Propiedades.getValor("pass");
+            String port = Propiedades.getValor("port");
+            String database = Propiedades.getValor("database");
             // Construir URL de conexión JDBC
             String url = "jdbc:mariadb://" + host + ":" + port + "/" + database;
             conexionMDB = DriverManager.getConnection(url, user, pass);
@@ -106,37 +100,6 @@ public class ConectionDB {
                 loger.error("Error al cerrar conexión: " + e.getMessage());
             }
         }
-    }
-
-    /**
-     * Carga las propiedades de configuración de la base de datos desde el archivo de recursos.
-     * <p>
-     * Lee el archivo {@code configuration.properties} del classpath y lo convierte
-     * en un objeto {@link Properties} para acceder a los parámetros de conexión.
-     * </p>
-     * 
-     * @return objeto {@link Properties} con la configuración cargada, o {@code null} si ocurre un error
-     * @throws FileNotFoundException si no se encuentra el archivo {@code configuration.properties}
-     * @see java.util.Properties
-     */
-    public static Properties loadProperties() {
-        try (InputStream input = ConectionDB.class.getClassLoader()
-                .getResourceAsStream("configuration.properties")) {
-
-            if (input == null) {
-                String errorMsg = "No se encontró configuration.properties en resources";
-                loger.error(errorMsg);
-                throw new FileNotFoundException(errorMsg);
-            }
-
-            Properties props = new Properties();
-            props.load(input);
-            return props;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 }

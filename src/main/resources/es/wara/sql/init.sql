@@ -17,6 +17,6 @@ DEFAULT CHARSET=utf8mb4;
 # Datos iniciales de ejemplo
 INSERT INTO personas (firstName, lastName, birthDate) VALUES
 ('John', 'Lennon', '1940-10-09'),
-('Paul', 'McCartney', '1942-06-18'),
+('Paul', 'Mccartney', '1942-06-18'),
 ('George', 'Harrison', '1943-02-25'),
 ('Ringo', 'Starr', '1940-07-07');

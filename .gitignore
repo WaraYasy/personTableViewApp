@@ -39,3 +39,4 @@ build/
 
 ## Properties ##
 **/configuration.properties
+src/main/resources/es/wara/configuration.properties

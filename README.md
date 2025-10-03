@@ -82,15 +82,14 @@ src/main/resources/
 ## Configuración de Base de Datos
 
 ### Archivo de Configuración
-La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
+La aplicación requiere un archivo `configuration.properties` que se debe añadir en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
 
 ```properties
-# Configuración de Base de Datos
-db.host=localhost
-db.port=3306
-db.name=dbpersonas
-db.user=tu_usuario
-db.password=tu_contraseña
+host=localhost
+port=3306
+user=tu_user
+password=tu_contraseña
+database=nombre_base_de_datos
 ```
 
 ### Configuración de la Base de Datos

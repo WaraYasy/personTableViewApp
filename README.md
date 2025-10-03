@@ -91,7 +91,7 @@ user=tu_user
 pass=tu_contraseña
 database=nombre_base_de_datos
 ```
-⚠️NOTA:Este fichero ya está creado en el repositorio, tu debes agregar las credenciales correspondientes..
+⚠️Nota: Este fichero ya está creado en el repositorio. Debes agregar tus credenciales personales en los campos correspondientes (user, pass, database).
 
 ### Configuración de la Base de Datos
 1. **Crear la base de datos**: Ejecuta el script `src/main/resources/es/wara/sql/init.sql` en tu servidor de base de datos

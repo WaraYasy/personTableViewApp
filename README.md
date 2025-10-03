@@ -82,7 +82,7 @@ src/main/resources/
 ## Configuración de Base de Datos
 
 ### Archivo de Configuración
-La aplicación requiere un archivo `configuration.properties` que se debe añadir en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
+La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
 
 ```properties
 host=localhost
@@ -91,6 +91,7 @@ user=tu_user
 password=tu_contraseña
 database=nombre_base_de_datos
 ```
+⚠️NOTA:Este fichero ya está creado en el repositorio, tu debes agregar las credenciales con la estructura planteada.
 
 ### Configuración de la Base de Datos
 1. **Crear la base de datos**: Ejecuta el script `src/main/resources/es/wara/sql/init.sql` en tu servidor de base de datos

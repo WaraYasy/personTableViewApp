@@ -88,7 +88,7 @@ La aplicación requiere un archivo `configuration.properties` en la carpeta `src
 host=localhost
 port=3306
 user=tu_user
-password=tu_contraseña
+pass=tu_contraseña
 database=nombre_base_de_datos
 ```
 ⚠️NOTA:Este fichero ya está creado en el repositorio, tu debes agregar las credenciales correspondientes..

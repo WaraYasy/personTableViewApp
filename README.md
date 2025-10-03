@@ -14,6 +14,7 @@ La aplicación implementa una **agenda personal** con interfaz gráfica utilizan
 - Crear una aplicación JavaFX bien estructurada siguiendo el patrón **Modelo-Vista-Controlador (MVC)**
 - Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'heptálogo?' 🙂‍↕️🙂‍↕️
 
+
 ## Características
 
 ### Interfaz Gráfica

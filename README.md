@@ -1,12 +1,12 @@
-# 🍂🍁PeopleViewApp - Versión Síncrona - Práctica con JavaFX, FXML, Maria DB y TableView🍂🍁
+# 💐🍃PeopleViewApp - Versión Síncrona - Práctica con JavaFX, FXML, Maria DB y TableView🍃🌼
 
 Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
 
-## Descripción
+## 🗒️Descripción
 
 La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
 
-## Objetivos
+## 📌Objetivos
 
 - Practicar el uso de **TableView** para visualización y manipulación de datos tabulares
 - Integrar sistema de logging profesional con **SLF4J** y **Logback**
@@ -15,9 +15,9 @@ La aplicación implementa una **agenda personal multilingue** con interfaz gráf
 - Crear una aplicación JavaFX bien estructurada siguiendo el patrón **Modelo-Vista-Controlador (MVC)**
 - Crear una aplicación JavaFX bien estructurada y documentada que cumpla el 'decálogo🤯🫨' 
 
-## Características
+## 📋Características
 
-### Interfaz Gráfica
+### 🖥️Interfaz Gráfica
 - **Diseño responsivo**: Interfaz construida con FXML y estilizada con CSS
 - **Internacionalización**: Soporte completo para español e inglés con ResourceBundle
 - **GridPane**: Contenedor principal que organiza elementos en cuadrícula de 3 columnas × 5 filas
@@ -29,7 +29,7 @@ La aplicación implementa una **agenda personal multilingue** con interfaz gráf
   - Tooltips informativos localizados en todos los controles
   - Mensajes de error y confirmación en el idioma seleccionado
 
-### Funcionalidades
+### 💡Funcionalidades
 - **Agregar personas**: Formulario con validación de campos obligatorios y mensajes localizados
 - **Eliminar registros**: Selección múltiple y eliminación segura con confirmaciones
 - **Restaurar datos**: Restablece la tabla a su estado inicial con datos predefinidos
@@ -38,7 +38,7 @@ La aplicación implementa una **agenda personal multilingue** con interfaz gráf
 - **Soporte de idiomas**: Cambio dinámico entre español e inglés
 - **Gestión de configuración**: Carga segura de propiedades de base de datos
   
-## Estructura del Proyecto
+## 🗄️Estructura del Proyecto
 
 ```
 src/main/java/es/wara/
@@ -67,7 +67,7 @@ src/main/resources/
         └── init.sql              # Script de inicialización de BD
 ```
 
-## Requisitos
+## 📍Requisitos
 
 - **Java 11** o superior
 - **Maven 3.8** o superior
@@ -79,7 +79,7 @@ src/main/resources/
   - Logback Classic y Core (1.5.13)
   - MariaDB Java Client (3.5.6)
 
-## Configuración de Base de Datos
+## ⚙️Configuración de Base de Datos
 
 ### Archivo de Configuración
 La aplicación requiere un archivo `configuration.properties` en la carpeta `src/main/resources/es/wara/` con la siguiente estructura:
@@ -187,4 +187,4 @@ La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 
 ---
 
-*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue. Feliz revisión de ejercicios Israel 🎃🍂🍁*
+*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue.✨*

@@ -3,11 +3,14 @@ package es.wara;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Clase principal de la aplicación JavaFX.
@@ -45,11 +48,26 @@ public class PeopleViewApp extends Application {
     public void start(Stage stage) throws IOException {
         loger.info("Iniciando aplicación JavaFX - PeopleViewApp");
 
+        // Configurar idioma y resource bundle
+        //Locale locale = Locale.forLanguageTag("en");
+        Locale locale = Locale.forLanguageTag("es");
+
+        loger.debug("Configurando idioma: {}", locale.getLanguage());
+        ResourceBundle bundle = ResourceBundle.getBundle("es.wara.texts", locale);
+        loger.debug("Resource bundle cargado para locale: {}", locale);
+
+
         // Cargar archivo FXML con la definición de la interfaz
         loger.debug("Cargando archivo FXML: fxml/tableView.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(PeopleViewApp.class.getResource("fxml/tableView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PeopleViewApp.class.getResource("fxml/tableView.fxml"),bundle);
         scene = new Scene(fxmlLoader.load());
         loger.info("Archivo FXML cargado exitosamente");
+
+        // Configurar icono de la aplicación
+        Image icon = new Image(
+                PeopleViewApp.class.getResource("/es/wara/images/icon.png").toExternalForm()
+        );
+        stage.getIcons().add(icon);
 
         // Configurar título de la ventana
         stage.setTitle("Agenda Personal");
@@ -62,9 +80,9 @@ public class PeopleViewApp extends Application {
 
         // Configurar escena y dimensiones en el escenario
         stage.setScene(scene);
-        stage.setMinWidth(600);
+        stage.setMinWidth(650);
         stage.setMinHeight(600);
-        stage.setMaxWidth(900);
+        stage.setMaxWidth(1000);
         stage.setMaxHeight(900);
 
         // Mostrar la ventana principal
@@ -76,8 +94,8 @@ public class PeopleViewApp extends Application {
     }
 
     /**
-     * Método principal de la aplicación.
-     * Lanza la aplicaación de JavaFX.
+     * Función principal de la aplicación.
+     * Lanza la aplicación de JavaFX.
      *
      * @param args Argumentos de la línea de comandos (No sse requieren).
      */

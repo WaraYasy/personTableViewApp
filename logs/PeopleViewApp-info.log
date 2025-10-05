@@ -1,122 +1,198 @@
-2025-09-27 13:49:52 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 13:49:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 13:49:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 13:49:52 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 13:49:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 13:50:11 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente: Person ID: 5, First Name: Juan, Last Name: asdasd, Birth Date: null
-2025-09-27 13:52:23 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 13:52:23 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 13:52:23 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 13:52:23 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 13:52:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 13:53:12 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 13:53:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 13:53:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 13:53:12 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 13:53:13 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 13:53:27 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente: Person ID: 5, First Name: kkk, Last Name: kk, Birth Date: 2025-09-20
-2025-09-27 13:59:19 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 13:59:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 13:59:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 13:59:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 13:59:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:12:18 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:12:18 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:12:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:12:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:12:19 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:14:09 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:14:09 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:14:09 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:14:09 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:14:09 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:14:46 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:14:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:14:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:14:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:14:47 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:16:39 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:16:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:16:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:16:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:16:39 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:17:05 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:17:05 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:17:05 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:17:05 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:17:05 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:18:09 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:18:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:18:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:18:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:18:10 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:20:46 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:20:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:20:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:20:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:20:47 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:21:17 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:21:17 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:21:17 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:21:17 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:21:18 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:21:40 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:21:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:21:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:21:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:21:40 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:23:16 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:23:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:23:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:23:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:23:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:23:48 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:23:48 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:23:48 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:23:48 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:23:48 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:24:06 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:24:06 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:24:06 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:24:06 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:24:07 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:24:25 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:24:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:24:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:24:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:24:25 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:24:45 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:24:45 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:24:45 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:24:45 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:24:46 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:25:13 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:25:13 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:25:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:25:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:25:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:26:15 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:26:15 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:26:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:26:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:26:16 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:32:07 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:32:07 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:32:07 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:32:07 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:32:08 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:35:41 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:35:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:35:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:35:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:35:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:35:53 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:35:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:35:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:35:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:35:53 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
-2025-09-27 14:39:14 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
-2025-09-27 14:39:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
-2025-09-27 14:39:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
-2025-09-27 14:39:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
-2025-09-27 14:39:14 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 10:23:34 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 10:23:34 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 10:23:35 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas desde la base de datos
+2025-10-05 10:23:35 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 10:23:35 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 10:23:35 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 10:23:38 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-05 10:23:38 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 10:24:03 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 10:24:03 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 10:24:03 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas desde la base de datos
+2025-10-05 10:24:03 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 10:24:03 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 10:24:03 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 406 personas obtenidas
+2025-10-05 10:24:06 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada: 406 personas
+2025-10-05 10:24:06 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga asíncrona completada exitosamente
+2025-10-05 10:24:15 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando eliminación de 1 personas seleccionadas
+2025-10-05 10:24:15 [Thread-4] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de 1 personas
+2025-10-05 10:24:18 [Thread-4] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de persona con ID: 418
+2025-10-05 10:24:18 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:24:18 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:24:18 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. ID: 418
+2025-10-05 10:24:18 [Thread-4] INFO  es.wara.dao.DaoPerson - Eliminación completada: 1 de 1 personas eliminadas exitosamente
+2025-10-05 10:24:18 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - ✓ 1 personas eliminadas exitosamente
+2025-10-05 10:24:18 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+1 persona(s) eliminada(s).
+Total restante: 405
+2025-10-05 10:24:21 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando eliminación de 1 personas seleccionadas
+2025-10-05 10:24:21 [Thread-5] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de 1 personas
+2025-10-05 10:24:24 [Thread-5] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de persona con ID: 417
+2025-10-05 10:24:24 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:24:24 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:24:24 [Thread-5] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. ID: 417
+2025-10-05 10:24:24 [Thread-5] INFO  es.wara.dao.DaoPerson - Eliminación completada: 1 de 1 personas eliminadas exitosamente
+2025-10-05 10:24:24 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - ✓ 1 personas eliminadas exitosamente
+2025-10-05 10:24:24 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+1 persona(s) eliminada(s).
+Total restante: 404
+2025-10-05 10:28:58 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 10:28:58 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 10:28:59 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas desde la base de datos
+2025-10-05 10:28:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 10:28:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 10:28:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga de todas las personas desde la base de datos
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada exitosamente. 404 personas obtenidas
+2025-10-05 10:29:02 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada: 404 personas
+2025-10-05 10:29:02 [JavaFX Application Thread] INFO  es.wara.dao.DaoPerson - Carga asíncrona completada exitosamente
+2025-10-05 10:29:13 [Thread-4] INFO  es.wara.dao.DaoPerson - Iniciando inserción de nueva persona: 3 3
+2025-10-05 10:29:13 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:29:13 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:29:13 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: 3 3
+2025-10-05 10:29:13 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada correctamente.
+2025-10-05 10:29:28 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 10:29:33 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 10:29:38 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 10:29:47 [Thread-5] INFO  es.wara.dao.DaoPerson - Iniciando inserción de nueva persona: paco jesus
+2025-10-05 10:29:47 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:29:47 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:29:47 [Thread-5] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: paco jesus
+2025-10-05 10:29:47 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada correctamente.
+2025-10-05 10:29:56 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminando 3 personas seleccionadas
+2025-10-05 10:29:56 [Thread-6] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de 3 personas
+2025-10-05 10:29:59 [Thread-6] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de persona con ID: 408
+2025-10-05 10:29:59 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:29:59 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:29:59 [Thread-6] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. ID: 408
+2025-10-05 10:30:02 [Thread-6] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de persona con ID: 405
+2025-10-05 10:30:02 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:30:02 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:30:02 [Thread-6] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. ID: 405
+2025-10-05 10:30:05 [Thread-6] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de persona con ID: 406
+2025-10-05 10:30:05 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 10:30:05 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 10:30:05 [Thread-6] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. ID: 406
+2025-10-05 10:30:05 [Thread-6] INFO  es.wara.dao.DaoPerson - Eliminación completada: 3 de 3 personas eliminadas exitosamente
+2025-10-05 10:30:05 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - ✓ 3 personas eliminadas exitosamente
+2025-10-05 10:30:05 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+3 persona(s) eliminada(s).
+Total restante: 403
+2025-10-05 11:20:24 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 11:20:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 11:20:24 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas
+2025-10-05 11:20:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 11:20:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 11:20:24 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 11:20:27 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 11:20:27 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:20:27 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:20:27 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada: 403 personas
+2025-10-05 11:20:31 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando restauración de datos básicos
+2025-10-05 11:20:31 [Thread-4] INFO  es.wara.dao.DaoPerson - Iniciando restauración de datos básicos de The Beatles
+2025-10-05 11:20:31 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:20:31 [Thread-4] INFO  es.wara.dao.DaoPerson - Restauración completada exitosamente. 4 registros de The Beatles insertados
+2025-10-05 11:20:31 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:20:31 [Thread-5] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas
+2025-10-05 11:20:31 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Tabla restaurada exitosamente a los datos básicos originales.
+Anteriormente: 403 personas.
+Ahora: 403 personas (The Beatles).
+Datos restaurados: John Lennon, Paul McCartney, George Harrison, Ringo Starr.
+2025-10-05 11:20:34 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:20:34 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:20:34 [Thread-5] INFO  es.wara.dao.DaoPerson - Carga completada: 4 personas
+2025-10-05 11:29:41 [Thread-6] INFO  es.wara.dao.DaoPerson - Insertando persona: Person ID: 408, First Name: jm, Last Name: m, Birth Date: null
+2025-10-05 11:29:44 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:29:44 [Thread-6] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: Person ID: 408, First Name: jm, Last Name: m, Birth Date: null
+2025-10-05 11:29:44 [Thread-6] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:29:44 [Thread-6] INFO  es.wara.dao.DaoPerson - Inserción exitosa: Person ID: 408, First Name: jm, Last Name: m, Birth Date: null
+2025-10-05 11:29:44 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente
+2025-10-05 11:32:54 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 11:32:54 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 11:32:55 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas
+2025-10-05 11:32:55 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 11:32:55 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 11:32:55 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 11:32:58 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 11:32:58 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:32:58 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:32:58 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada: 157 personas
+2025-10-05 11:33:04 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Inicia proceso de eliminación de 4 personas seleccionadas
+2025-10-05 11:33:04 [Thread-4] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de 4 personas
+2025-10-05 11:33:07 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:33:07 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 123, First Name: Axl, Last Name: Rose, Birth Date: 1962-02-06
+2025-10-05 11:33:07 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:33:10 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:33:10 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 124, First Name: Slash, Last Name: Hudson, Birth Date: 1965-07-23
+2025-10-05 11:33:10 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:33:13 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:33:13 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 125, First Name: Duff, Last Name: McKagan, Birth Date: 1964-02-05
+2025-10-05 11:33:13 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:33:16 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:33:16 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 126, First Name: Izzy, Last Name: Stradlin, Birth Date: 1962-04-08
+2025-10-05 11:33:16 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:33:16 [Thread-4] INFO  es.wara.dao.DaoPerson - Eliminación completada: 4/4 personas eliminadas
+2025-10-05 11:33:16 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+4 persona(s) eliminada(s).
+Total restante: 153
+2025-10-05 11:34:20 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 11:34:20 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 11:34:20 [Thread-3] INFO  es.wara.dao.DaoPerson - Iniciando carga asíncrona de personas
+2025-10-05 11:34:20 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 11:34:20 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 11:34:20 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 11:34:20 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:34:20 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:34:20 [Thread-3] INFO  es.wara.dao.DaoPerson - Carga completada: 153 personas
+2025-10-05 11:34:20 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 11:34:24 [Thread-4] INFO  es.wara.dao.DaoPerson - Insertando persona: Person ID: 154, First Name: ddfaef, Last Name: afaf, Birth Date: null
+2025-10-05 11:34:24 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:34:24 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: Person ID: 154, First Name: ddfaef, Last Name: afaf, Birth Date: null
+2025-10-05 11:34:24 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:34:24 [Thread-4] INFO  es.wara.dao.DaoPerson - Inserción exitosa: Person ID: 154, First Name: ddfaef, Last Name: afaf, Birth Date: null
+2025-10-05 11:34:24 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente
+2025-10-05 11:34:31 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Inicia proceso de eliminación de 2 personas seleccionadas
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.dao.DaoPerson - Iniciando eliminación de 2 personas
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 157, First Name: jm, Last Name: m, Birth Date: null
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 154, First Name: ddfaef, Last Name: afaf, Birth Date: null
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 11:34:31 [Thread-5] INFO  es.wara.dao.DaoPerson - Eliminación completada: 2/2 personas eliminadas
+2025-10-05 11:34:31 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+2 persona(s) eliminada(s).
+Total restante: 152
+2025-10-05 12:03:58 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-05 12:03:58 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-05 12:03:58 [Thread-3] INFO  es.wara.control.TableViewController - Cargando personas desde BD
+2025-10-05 12:03:58 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-05 12:03:58 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-05 12:03:59 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-05 12:04:01 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-05 12:04:01 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 12:04:01 [Thread-3] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 12:04:01 [Thread-3] INFO  es.wara.control.TableViewController - Carga completada: 152 personas
+2025-10-05 12:04:12 [Thread-4] INFO  es.wara.control.TableViewController - Insertando persona: Person ID: 153, First Name: jjk, Last Name: kgkj, Birth Date: null
+2025-10-05 12:04:15 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 12:04:15 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: Person ID: 153, First Name: jjk, Last Name: kgkj, Birth Date: null
+2025-10-05 12:04:15 [Thread-4] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 12:04:15 [Thread-4] INFO  es.wara.control.TableViewController - Inserción exitosa
+2025-10-05 12:04:15 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente
+2025-10-05 12:04:39 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 12:04:46 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 12:04:51 [JavaFX Application Thread] INFO  es.wara.model.Person - Birth date must not be in future.
+2025-10-05 12:05:00 [Thread-5] INFO  es.wara.control.TableViewController - Insertando persona: Person ID: 154, First Name: dvv, Last Name: zvvdv, Birth Date: 2018-11-09
+2025-10-05 12:05:03 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión establecida con dbpersonas
+2025-10-05 12:05:03 [Thread-5] INFO  es.wara.dao.DaoPerson - Persona añadida exitosamente: Person ID: 154, First Name: dvv, Last Name: zvvdv, Birth Date: 2018-11-09
+2025-10-05 12:05:03 [Thread-5] INFO  es.wara.database.ConectionDB - Conexión cerrada
+2025-10-05 12:05:03 [Thread-5] INFO  es.wara.control.TableViewController - Inserción exitosa
+2025-10-05 12:05:03 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Persona agregada exitosamente

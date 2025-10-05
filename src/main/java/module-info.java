@@ -8,11 +8,12 @@ module es.wara {
     // Dependencias JavaFX
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.graphics;
+    requires transitive javafx.graphics;
     
     // Logging
     requires org.slf4j;
     requires javafx.base;
+    requires java.sql;
 
 
     // Permitir acceso por reflexión para JavaFX

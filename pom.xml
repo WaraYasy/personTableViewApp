@@ -51,6 +51,26 @@
             <artifactId>commons-logging</artifactId>
             <version>1.0.3</version>
         </dependency>
+        <!--Maria DB-->
+        <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.5.6</version>
+        </dependency>
+        <!--IKonli-->
+        <!-- Ikonli JavaFX bridge -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>12.4.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.kordamp.ikonli/ikonli-fontawesome5-pack -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>12.3.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

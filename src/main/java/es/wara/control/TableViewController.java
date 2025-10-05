@@ -1,282 +1,363 @@
 package es.wara.control;
 
+import es.wara.dao.DaoPerson;
 import es.wara.model.Person;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.*;
 
 /**
- * Controlador para la gestión de personas en una interfaz JavaFX basada en TableView.
- * <p>
- * Esta clase gestiona la visualización y manipulación de una lista de personas, permitiendo
- * operaciones CRUD (alta, baja, restauración de datos y visualización) y una experiencia de usuario enriquecida
- * con validaciones, alertas y registro de eventos.
- * </p>
- * <h2>Funciones principales:</h2>
- * <ul>
- *   <li>Mostrar la lista de personas en una {@link TableView}</li>
- *   <li>Agregar nuevas personas mediante formulario</li>
- *   <li>Eliminar personas seleccionadas</li>
- *   <li>Restaurar el estado original de la tabla</li>
- *   <li>Mostrar mensajes de error e información mediante cuadros de diálogo</li>
- * </ul>
+ * Controlador JavaFX para gestión de personas con soporte multilingüe.
  *
  * @author Wara Pacheco
- * @version 1.2
- * @since 2025-09-25
+ * @version 3.0
+ * @since 2025-10-05
  */
 public class TableViewController {
 
     // ===== CONTROLES DE LA INTERFAZ =========
-
-    /** Botón para agregar una nueva persona a la tabla. */
     @FXML
     private Button btnAdd;
 
-    /** Botón para eliminar las filas seleccionadas de la tabla. */
     @FXML
     private Button btnDeleteRows;
 
-    /** Botón para restaurar la tabla a su estado inicial. */
     @FXML
     private Button btnRestoreRows;
 
-    /** Campo de selección de fecha de nacimiento. */
     @FXML
     private DatePicker dateBirth;
 
-    /** Tabla principal que muestra la lista de personas. */
     @FXML
     private TableView<Person> tablePerson;
 
-    /** Campo de texto para ingresar el nombre. */
     @FXML
     private TextField txtFirstName;
 
-    /** Campo de texto para ingresar el apellido. */
     @FXML
     private TextField txtLastName;
 
-    // ===== COLUMNAS DE LA TABLA =====
+    @FXML
+    private ProgressBar progressBar;
 
-    /** Columna que muestra el ID único de la persona. */
+    // ===== COLUMNAS DE LA TABLA =====
     @FXML
     private TableColumn<Person, Integer> colPersonId;
 
-    /** Columna que muestra el nombre de la persona. */
     @FXML
     private TableColumn<Person, String> colFirstName;
 
-    /** Columna que muestra el apellido de la persona. */
     @FXML
     private TableColumn<Person, String> colLastName;
 
-    /** Columna que muestra la fecha de nacimiento de la persona. */
     @FXML
     private TableColumn<Person, LocalDate> colBirthDate;
 
-    /** Logger para registrar eventos y depuración del controlador. */
-    private static final Logger loger = LoggerFactory.getLogger(TableViewController.class);
+    /** Lista observable que alimenta la tabla */
+    private ObservableList<Person> allThePeople = FXCollections.observableArrayList();
 
+    /** Resource bundle para internacionalización */
+    private ResourceBundle bundle;
+
+    /** Logger para eventos y depuración */
+    private static final Logger logger = LoggerFactory.getLogger(TableViewController.class);
+
+
+    // Configuración para pruebas
+    private static final boolean SIMULAR_CARGA_LENTA = true;
+    private static final int MILISEGUNDOS_SIMULACION = 3000;
     /**
-     * Inicializa el controlador y configura la tabla de personas tras cargar el archivo FXML.
-     * <p>
-     * Realiza las siguientes acciones:
-     * <ul>
-     *   <li>Carga la lista inicial de personas en la tabla</li>
-     *   <li>Configura el modo de selección múltiple</li>
-     *   <li>Establece las fábricas de valores para cada columna</li>
-     * </ul>
-     * <b>Nota:</b> Lanza una excepción si ocurre un error durante la inicialización.
+     * Inicializa el controlador después de cargar el FXML
      */
     @FXML
     public void initialize() {
-        // Cargar lista inicial de personas en la tabla
-        ObservableList<Person> initialList = getPersonList();
-        tablePerson.setItems(initialList);
-        loger.debug("Lista inicial cargada con {} personas", initialList.size());
+        // Configurar internacionalización
+        // Locale locale = Locale.forLanguageTag("en");
+        Locale locale = Locale.forLanguageTag("es");
+        bundle = ResourceBundle.getBundle("es.wara.texts", locale);
+        logger.debug("Resource bundle configurado para locale: {}", locale);
 
-        // Configurar selección múltiple
-        TableView.TableViewSelectionModel<Person> tsm = tablePerson.getSelectionModel();
-        tsm.setSelectionMode(SelectionMode.MULTIPLE);
+        // Configurar tabla
+        tablePerson.setItems(allThePeople);
+        tablePerson.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        // Configurar las columnas para mostrar las propiedades de Person
+        // Configurar columnas
         colPersonId.setCellValueFactory(new PropertyValueFactory<>("personId"));
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
 
+        // Cargar datos iniciales
+        cargarDatos();
+
+        logger.debug("TableViewController inicializado correctamente");
     }
 
+
+
     /**
-     * Agrega una nueva persona a la tabla utilizando los datos ingresados en el formulario.
-     * <p>
-     * Realiza validación de campos obligatorios, crea una nueva instancia de {@link Person}
-     * y la añade a la tabla si los datos son válidos. Muestra una alerta de error si faltan datos
-     * y limpia los campos tras una inserción exitosa.
-     * </p>
-     * @see Person#Person(String, String, LocalDate)
-     * @see #clearFields()
+     * Agrega una nueva persona a la base de datos de forma asíncrona
      */
-    @FXML
     public void addPerson() {
-        try {
-            // Obtener valores de los campos de entrada
-            String firstName = txtFirstName.getText();
-            String lastName = txtLastName.getText();
-            LocalDate birthDate = dateBirth.getValue();
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        LocalDate birthDate = dateBirth.getValue();
 
-            // Validación básica de campos obligatorios
-            if (firstName == null || firstName.trim().isEmpty()) {
-                loger.error("Intento de agregar persona con nombre vacío");
-                mostrarAlertError(btnAdd.getScene().getWindow(), "Debes introducir el nombre de la persona.");
-                return;
-            }
-            if (lastName == null || lastName.trim().isEmpty()) {
-                loger.error("Intento de agregar persona con apellido vacío");
-                mostrarAlertError(btnAdd.getScene().getWindow(), "Debes introducir los apellidos de la persona.");
-                return;
-            }
-
-            // Crear nueva persona y agregar a la tabla
-            Person newPerson = new Person(firstName.trim(), lastName.trim(), birthDate);
-            tablePerson.getItems().add(newPerson);
-
-            loger.info("Persona agregada exitosamente: {}", newPerson);
-
-            // Limpiar campos para la siguiente entrada
-            clearFields();
-        } catch (Exception e) {
-            loger.error("Error al agregar nueva persona: {}", e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Elimina las filas seleccionadas de la tabla de personas.
-     * <p>
-     * Verifica que exista al menos una selección, elimina las personas seleccionadas en orden inverso
-     * para mantener la integridad de los índices, y muestra una alerta informativa tras la operación.
-     * Registra todas las operaciones para auditoría.
-     * </p>
-     * <b>Nota:</b> La eliminación se realiza en orden inverso.
-     */
-    @FXML
-    public void deleteSelectedRows() {
-        TableView.TableViewSelectionModel<Person> tsm = tablePerson.getSelectionModel();
-
-        // Validar que hay filas seleccionadas
-        if (tsm.isEmpty()) {
-            loger.info("Intento de eliminar filas sin tener ninguna seleccionada");
-            mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), "No hay celdas seleccionadas.");
+        //Validar campos
+        if (!isValid(firstName, lastName, birthDate)) {
             return;
         }
 
-        try {
-            // Obtener índices seleccionados y ordenarlos
-            ObservableList<Integer> selectedIndicesList = tsm.getSelectedIndices();
-            Integer[] selectedIndices = selectedIndicesList.toArray(new Integer[0]);
-            Arrays.sort(selectedIndices);
+        Person newPerson = new Person(firstName.trim(), lastName.trim(), birthDate);
 
-            loger.info("Eliminando {} filas seleccionadas: {}", selectedIndices.length, Arrays.toString(selectedIndices));
+        btnAdd.setDisable(true);
+        gestionarProgreso(true);
 
-            // Eliminar en orden inverso para preservar índices
-            for (int i = selectedIndices.length - 1; i >= 0; i--) {
-                int index = selectedIndices[i];
-                Person personToRemove = tablePerson.getItems().get(index);
-                tsm.clearSelection(index);
-                tablePerson.getItems().remove(index);
-                loger.debug("Persona eliminada: {}", personToRemove);
+        // Crear Task para que la acción sea asíncrona
+        Task<Boolean> tarea = new Task<Boolean>() {
+            @Override
+            protected Boolean call() throws Exception {
+                logger.info("Insertando persona: {}", newPerson.toString());
+
+                if (SIMULAR_CARGA_LENTA) {
+                    Thread.sleep(MILISEGUNDOS_SIMULACION);
+                }
+
+                boolean resultado = DaoPerson.addPersonSync(newPerson);
+                logger.info("Inserción {}", resultado ? "exitosa" : "fallida");
+                return resultado;
             }
+        };
 
-            String mensaje = "Eliminación exitosa.\n" + selectedIndices.length + " persona(s) eliminada(s).\nTotal restante: " + tablePerson.getItems().size();
-            loger.info(mensaje);
-            mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), mensaje);
+        tarea.setOnSucceeded(e -> {
+            boolean insertado = tarea.getValue();
+            btnAdd.setDisable(false);
+            gestionarProgreso(false);
 
-        } catch (Exception e) {
-            loger.error("Error durante la eliminación de filas: {}", e.getMessage(), e);
-        }
+            if (insertado) {
+                clearFields();
+                allThePeople.add(newPerson);
+                tablePerson.refresh();
+                mostrarAlertInfo(btnAdd.getScene().getWindow(), bundle.getString("successAddPerson"));
+            } else {
+                mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorAddPerson"));
+            }
+        });
+
+        tarea.setOnFailed(e -> {
+            btnAdd.setDisable(false);
+            gestionarProgreso(false);
+            mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorAddPerson"));
+        });
+        //La tarea se lleva a cabo en un hilo diferente
+        new Thread(tarea).start();
     }
 
+
     /**
-     * Restaura la tabla de personas a su estado inicial.
-     * <p>
-     * Limpia completamente la tabla actual y recarga la lista original de personas.
-     * Actualiza la interfaz y muestra una alerta informativa con el resultado.
-     * <b>Advertencia:</b> Esta operación no se puede deshacer.
-     * </p>
+     * Elimina las filas seleccionadas de la tabla de forma asíncrona
+     */
+    public void deleteSelectedRows() {
+        ObservableList<Person> personasSeleccionadas = tablePerson.getSelectionModel().getSelectedItems();
+
+        if (personasSeleccionadas.isEmpty()) {
+            mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
+            return;
+        }
+
+        List<Person> personasAEliminar = new ArrayList<>(personasSeleccionadas);
+        logger.info("Iniciando eliminación de {} personas", personasAEliminar.size());
+
+        btnDeleteRows.setDisable(true);
+        gestionarProgreso(true);
+
+        // Crear Task en el controller
+        Task<Integer> tarea = new Task<Integer>() {
+            @Override
+            protected Integer call() throws Exception {
+                int eliminadas = 0;
+                int total = personasAEliminar.size();
+
+                for (Person persona : personasAEliminar) {
+                    if (SIMULAR_CARGA_LENTA) {
+                        Thread.sleep(MILISEGUNDOS_SIMULACION);
+                    }
+
+                    if (DaoPerson.deletePersonSync(persona)) {
+                        eliminadas++;
+                    }
+                }
+
+                logger.info("Eliminación completada: {}/{} personas", eliminadas, total);
+                return eliminadas;
+            }
+        };
+
+        tarea.setOnSucceeded(e -> {
+            int eliminadas = tarea.getValue();
+            btnDeleteRows.setDisable(false);
+            gestionarProgreso(false);
+
+            if (eliminadas > 0) {
+                allThePeople.removeAll(personasAEliminar);
+                tablePerson.refresh();
+
+                String mensaje = String.format(bundle.getString("deleteSuccessMessage"),
+                        eliminadas, allThePeople.size());
+                mostrarAlertInfo(btnDeleteRows.getScene().getWindow(), mensaje);
+            } else {
+                mostrarAlertError(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
+            }
+        });
+
+        tarea.setOnFailed(e -> {
+            logger.error("Error en la tarea:{} ", tarea.getException().getMessage(), tarea.getException());
+            btnDeleteRows.setDisable(false);
+            gestionarProgreso(false);
+            mostrarAlertError(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
+        });
+
+        new Thread(tarea).start();
+    }
+    /**
+     * Restaura la tabla a su estado inicial con los datos de The Beatles
      */
     @FXML
     public void restoreRows() {
-        try {
-            loger.info("Iniciando restauración de la tabla a su estado original");
+        logger.info("Iniciando restauración de datos básicos");
+        int currentSize = allThePeople.size();
 
-            // Guardar estadísticas antes de la restauración
-            int currentSize = tablePerson.getItems().size();
+        btnRestoreRows.setDisable(true);
+        gestionarProgreso(true);
 
-            // Limpiar tabla actual y recargar datos originales
-            tablePerson.getItems().clear();
-            ObservableList<Person> listaOriginal = getPersonList();
-            tablePerson.getItems().addAll(listaOriginal);
+        // Ejecutar restauración en background
+        Task<Boolean> tarea = new Task<Boolean>() {
+            @Override
+            protected Boolean call() throws Exception {
+                if (SIMULAR_CARGA_LENTA) {
+                    Thread.sleep(MILISEGUNDOS_SIMULACION);
+                }
+                return DaoPerson.restoreBasicData();
+            }
+        };
 
-            String mensaje = "Tabla restaurada exitosamente.\nAnteriormente " + currentSize + " personas. Ahora " +
-                    listaOriginal.size() + " personas.";
-            loger.info(mensaje);
-            mostrarAlertInfo(btnRestoreRows.getScene().getWindow(), mensaje);
+        tarea.setOnSucceeded(e -> {
+            btnRestoreRows.setDisable(false);
 
-        } catch (Exception e) {
-            loger.error("Error durante la restauración de la tabla: {}", e.getMessage(), e);
-        }
+            if (tarea.getValue()) {
+                // Recargar desde BD después de restaurar
+                cargarDatos();
+
+                String mensaje = bundle.getString("restoreSuccessTitle") + "\n" +
+                        String.format(bundle.getString("restoreSuccessPrevious"), currentSize) + "\n" +
+                        String.format(bundle.getString("restoreSuccessNow"), allThePeople.size()) + "\n" +
+                        bundle.getString("restoreSuccessData");
+                mostrarAlertInfo(btnRestoreRows.getScene().getWindow(), mensaje);
+            } else {
+                gestionarProgreso(false);
+                mostrarAlertError(btnRestoreRows.getScene().getWindow(), bundle.getString("errorRestore"));
+            }
+        });
+
+        tarea.setOnFailed(e -> {
+            btnRestoreRows.setDisable(false);
+            gestionarProgreso(false);
+            String mensaje = bundle.getString("errorRestore2") + tarea.getException().getMessage();
+            mostrarAlertError(btnRestoreRows.getScene().getWindow(), mensaje);
+        });
+
+        new Thread(tarea).start();
+    }
+
+    /*-------------------------------------*/
+    /*        Métodos Auxiliares           */
+    /*-------------------------------------*/
+
+    /**
+     * Carga los datos desde la base de datos de forma asíncrona
+     */
+    private void cargarDatos() {
+        gestionarProgreso(true);
+
+        Task<ObservableList<Person>> task = new Task<ObservableList<Person>>() {
+            @Override
+            protected ObservableList<Person> call() throws Exception {
+                logger.info("Cargando personas desde BD");
+
+                if (SIMULAR_CARGA_LENTA) {
+                    Thread.sleep(MILISEGUNDOS_SIMULACION);
+                }
+
+                ObservableList<Person> personas = DaoPerson.fillTableSync();
+                logger.info("Carga completada: {} personas", personas.size());
+                return personas;
+            }
+        };
+
+        task.setOnSucceeded(e -> {
+            allThePeople.setAll(task.getValue());
+            gestionarProgreso(false);
+            logger.debug("Datos cargados: {} personas", allThePeople.size());
+        });
+
+        task.setOnFailed(e -> {
+            logger.error("Error al cargar datos: {}", task.getException().getMessage());
+            gestionarProgreso(false);
+            mostrarAlertError(btnAdd.getScene().getWindow(), "Error al cargar datos");
+        });
+
+        new Thread(task).start();
     }
 
     /**
-     * Limpia todos los campos de entrada del formulario.
-     * <p>
-     * Borra los valores introducidos en los campos de nombre, apellido y fecha de nacimiento,
-     * preparando el formulario para una nueva entrada.
-     * <br>
-     * Es llamado automáticamente después de agregar una persona exitosamente.
-     * </p>
-     * @see #addPerson()
+     * Valida los campos del formulario
+     * @return true si todos los campos son válidos, false en caso contrario
+     */
+    private boolean isValid(String firstName, String lastName, LocalDate birthDate) {
+        if (firstName == null || firstName.trim().isEmpty()) {
+            mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingFirstName"));
+            return false;
+        }
+
+        if (lastName == null || lastName.trim().isEmpty()) {
+            mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorMissingLastName"));
+            return false;
+        }
+
+        if (!Person.isValidBirthDate(birthDate)) {
+            String mensaje = bundle.getString("errorBirthDate") + birthDate;
+            mostrarAlertError(btnAdd.getScene().getWindow(), mensaje);
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Limpia todos los campos del formulario
      */
     private void clearFields() {
+        logger.debug("Limpiando campos del formulario");
         txtFirstName.clear();
         txtLastName.clear();
         dateBirth.setValue(null);
-        loger.debug("Campos del formulario limpiados");
     }
 
     /**
-     * Devuelve una lista inicial de personas para poblar la tabla.
-     * <p>
-     * Esta lista es estática y de ejemplo, con datos predefinidos.
-     * </p>
-     * @return {@link ObservableList} con instancias de {@link Person}
+     * Muestra un diálogo de error
      */
-    private static ObservableList<Person> getPersonList() {
-        Person john  = new Person("John",  "Lennon",   LocalDate.of(1940, 10, 9));
-        Person paul  = new Person("Paul",  "McCartney",LocalDate.of(1942, 6, 18));
-        Person george= new Person("George","Harrison", LocalDate.of(1943, 2, 25));
-        Person ringo = new Person("Ringo", "Starr",    LocalDate.of(1940, 7, 7));
-        return FXCollections.observableArrayList(john, paul, george, ringo);
-    }
-
-    /**
-     * Muestra un cuadro de diálogo de error con el mensaje especificado.
-     *
-     * @param win     Ventana propietaria del diálogo (usualmente la principal)
-     * @param mensaje Texto a mostrar en el cuadro de diálogo
-     */
-
     private void mostrarAlertError(Window win, String mensaje) {
+        logger.error(mensaje);
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initOwner(win);
         alert.setHeaderText(null);
@@ -286,12 +367,10 @@ public class TableViewController {
     }
 
     /**
-     * Muestra un cuadro de diálogo informativo con el mensaje especificado.
-     *
-     * @param win    Ventana propietaria del diálogo (usualmente la principal)
-     * @param mensaje Texto a mostrar en el cuadro de diálogo
+     * Muestra un diálogo informativo
      */
     private void mostrarAlertInfo(Window win, String mensaje) {
+        logger.info(mensaje);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initOwner(win);
         alert.setHeaderText(null);
@@ -300,4 +379,17 @@ public class TableViewController {
         alert.showAndWait();
     }
 
+    /**
+     * Gestiona la visibilidad de la barra de progreso
+     * @param mostrar true para mostrar, false para ocultar
+     */
+    private void gestionarProgreso(boolean mostrar) {
+        Platform.runLater(() -> {
+            progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
+            progressBar.setVisible(mostrar);
+            if (!mostrar) {
+                progressBar.progressProperty().unbind();
+            }
+        });
+    }
 }

@@ -17,12 +17,30 @@ import java.time.LocalDate;
 import java.util.*;
 
 /**
- * Controlador JavaFX para gestión de personas con operaciones asíncronas.
- * Maneja la interfaz de tabla y formularios con soporte multiidioma.
+ * Controlador JavaFX refactorizado para gestión de personas con operaciones asíncronas.
+ * <p>
+ * Este controlador implementa el patrón MVC para la gestión de personas, proporcionando
+ * una interfaz de usuario reactiva con operaciones CRUD asíncronas que no bloquean la UI.
+ * </p>
+ * 
+ * <h2>Operaciones disponibles:</h2>
+ * <ul>
+ *   <li>{@link #addPerson()} - Agregar nueva persona</li>
+ *   <li>{@link #deleteSelectedRows()} - Eliminar personas seleccionadas</li>
+ *   <li>{@link #restoreRows()} - Restaurar datos básicos (The Beatles)</li>
+ * </ul>
+ * 
+ * <h2>Métodos utilitarios:</h2>
+ * <ul>
+ *   <li>{@link #prepareAsyncOperation(Button)} - Preparar UI para operación asíncrona</li>
+ *   <li>{@link #completeAsyncOperation(Button)} - Completar operación asíncrona</li>
+ * </ul>
  * 
  * @author Wara Pacheco
- * @version 3.0
+ * @version 3.1
  * @since 2025-10-05
+ * @see Person
+ * @see DaoPerson
  */
 public class TableViewController {
 
@@ -73,10 +91,6 @@ public class TableViewController {
     /** Logger para eventos y depuración */
     private static final Logger logger = LoggerFactory.getLogger(TableViewController.class);
 
-
-    // Configuración para pruebas
-    private static final boolean SIMULAR_CARGA_LENTA = true;
-    private static final int MILISEGUNDOS_SIMULACION = 3000;
     /**
      * Inicializa el controlador configurando la tabla, columnas e idioma.
      * Se ejecuta automáticamente después de cargar el FXML.
@@ -106,10 +120,16 @@ public class TableViewController {
         logger.debug("TableViewController inicializado correctamente");
     }
 
-
-
     /**
      * Añade una nueva persona validando los datos y ejecutando la inserción de forma asíncrona.
+     * Este método implementa el patrón de operación asíncrona completo:
+     * <ol>
+     *   <li>Obtiene y valida los datos del formulario</li>
+     *   <li>Prepara la UI usando {@link #prepareAsyncOperation(Button)}</li>
+     *   <li>Ejecuta la inserción en un hilo separado</li>
+     *   <li>Maneja éxito/fallo restaurando la UI con {@link #completeAsyncOperation(Button)}</li>
+     * </ol>
+     * 
      */
     public void addPerson() {
         // Obtener datos del formulario
@@ -125,20 +145,14 @@ public class TableViewController {
         // Crear nueva persona con los datos validados
         Person newPerson = new Person(firstName.trim(), lastName.trim(), birthDate);
 
-        // Deshabilitar botón para evitar doble clic
-        btnAdd.setDisable(true);
-        gestionarProgreso(true);
+        // Preparar UI para operación asíncrona
+        prepareAsyncOperation(btnAdd);
 
         // Crear tarea asíncrona para no bloquear la UI
         Task<Boolean> tarea = new Task<Boolean>() {
             @Override
             protected Boolean call() throws Exception {
                 logger.info("Insertando persona: {}", newPerson.toString());
-
-                // Simular carga lenta para demostración
-                if (SIMULAR_CARGA_LENTA) {
-                    Thread.sleep(MILISEGUNDOS_SIMULACION);
-                }
 
                 // Ejecutar inserción en base de datos
                 boolean resultado = DaoPerson.addPersonSync(newPerson);
@@ -150,8 +164,7 @@ public class TableViewController {
         // Manejar éxito de la operación
         tarea.setOnSucceeded(e -> {
             boolean insertado = tarea.getValue();
-            btnAdd.setDisable(false);        // Reactivar botón
-            gestionarProgreso(false);         // Ocultar barra de progreso
+            completeAsyncOperation(btnAdd);
 
             if (insertado) {
                 clearFields();
@@ -165,8 +178,7 @@ public class TableViewController {
 
         // Manejar fallo de la operación
         tarea.setOnFailed(e -> {
-            btnAdd.setDisable(false);     // Reactivar botón
-            gestionarProgreso(false);      // Ocultar barra de progreso
+            completeAsyncOperation(btnAdd);
             mostrarAlertError(btnAdd.getScene().getWindow(), bundle.getString("errorAddPerson"));
         });
         
@@ -177,7 +189,12 @@ public class TableViewController {
 
     /**
      * Elimina las personas seleccionadas en la tabla de forma asíncrona.
-     * Valida la selección antes de proceder con la eliminación.
+     * <p>
+     * Valida la selección antes de proceder con la eliminación y utiliza el patrón
+     * de operación asíncrona estándar para mantener la UI responsiva.
+     * </p>
+     * 
+     * @throws IllegalStateException si no hay elementos seleccionados
      */
     public void deleteSelectedRows() {
         // Obtener elementos seleccionados en la tabla
@@ -193,8 +210,7 @@ public class TableViewController {
         List<Person> personasAEliminar = new ArrayList<>(personasSeleccionadas);
         logger.info("Iniciando eliminación de {} personas", personasAEliminar.size());
 
-        btnDeleteRows.setDisable(true);
-        gestionarProgreso(true);
+        prepareAsyncOperation(btnDeleteRows);
 
         // Crear Task en el controller
         Task<Integer> tarea = new Task<Integer>() {
@@ -204,10 +220,6 @@ public class TableViewController {
                 int total = personasAEliminar.size();
 
                 for (Person persona : personasAEliminar) {
-                    if (SIMULAR_CARGA_LENTA) {
-                        Thread.sleep(MILISEGUNDOS_SIMULACION);
-                    }
-
                     if (DaoPerson.deletePersonSync(persona)) {
                         eliminadas++;
                     }
@@ -220,8 +232,7 @@ public class TableViewController {
 
         tarea.setOnSucceeded(e -> {
             int eliminadas = tarea.getValue();
-            btnDeleteRows.setDisable(false);
-            gestionarProgreso(false);
+            completeAsyncOperation(btnDeleteRows);
 
             if (eliminadas > 0) {
                 allThePeople.removeAll(personasAEliminar);
@@ -237,8 +248,7 @@ public class TableViewController {
 
         tarea.setOnFailed(e -> {
             logger.error("Error en la tarea:{} ", tarea.getException().getMessage(), tarea.getException());
-            btnDeleteRows.setDisable(false);
-            gestionarProgreso(false);
+            completeAsyncOperation(btnDeleteRows);
             mostrarAlertError(btnDeleteRows.getScene().getWindow(), bundle.getString("errorDeleteRows"));
         });
 
@@ -246,7 +256,14 @@ public class TableViewController {
     }
     /**
      * Restaura la tabla eliminando todos los datos actuales e insertando los datos originales.
-     * Operación asíncrona que restaura los 4 registros básicos de The Beatles.
+     * <p>
+     * Operación asíncrona <b>DESTRUCTIVA</b> que restaura los 4 registros básicos de The Beatles.
+     * Utiliza el patrón estándar de operación asíncrona para mantener la UI responsiva.
+     * </p>
+     * 
+     * @see #prepareAsyncOperation(Button)
+     * @see #completeAsyncOperation(Button)
+     * @see DaoPerson#restoreBasicData()
      */
     @FXML
     public void restoreRows() {
@@ -254,25 +271,20 @@ public class TableViewController {
         // Guardar tamaño actual para mostrar en mensaje de confirmación
         int currentSize = allThePeople.size();
 
-        // Deshabilitar controles durante la operación
-        btnRestoreRows.setDisable(true);
-        gestionarProgreso(true);
+        // Preparar UI para operación asíncrona
+        prepareAsyncOperation(btnRestoreRows);
 
         // Crear tarea asíncrona para restauración
         Task<Boolean> tarea = new Task<Boolean>() {
             @Override
             protected Boolean call() throws Exception {
-                // Simular carga lenta para demostración
-                if (SIMULAR_CARGA_LENTA) {
-                    Thread.sleep(MILISEGUNDOS_SIMULACION);
-                }
                 // Ejecutar restauración completa de datos
                 return DaoPerson.restoreBasicData();
             }
         };
 
         tarea.setOnSucceeded(e -> {
-            btnRestoreRows.setDisable(false);
+            completeAsyncOperation(btnRestoreRows);
 
             if (tarea.getValue()) {
                 // Recargar desde BD después de restaurar
@@ -290,8 +302,7 @@ public class TableViewController {
         });
 
         tarea.setOnFailed(e -> {
-            btnRestoreRows.setDisable(false);
-            gestionarProgreso(false);
+            completeAsyncOperation(btnRestoreRows);
             String mensaje = bundle.getString("errorRestore2") + tarea.getException().getMessage();
             mostrarAlertError(btnRestoreRows.getScene().getWindow(), mensaje);
         });
@@ -305,7 +316,13 @@ public class TableViewController {
 
     /**
      * Carga todas las personas desde la base de datos de forma asíncrona.
-     * Actualiza la tabla automáticamente al completarse la carga.
+     * <p>
+     * Método interno que actualiza la tabla automáticamente al completarse la carga.
+     * Muestra indicador de progreso durante la operación y maneja errores apropiadamente.
+     * </p>
+     * 
+     * @see DaoPerson#fillTableSync()
+     * @see #gestionarProgreso(boolean)
      */
     private void cargarDatos() {
         gestionarProgreso(true);  // Mostrar indicador de carga
@@ -315,11 +332,6 @@ public class TableViewController {
             @Override
             protected ObservableList<Person> call() throws Exception {
                 logger.info("Cargando personas desde BD");
-
-                // Simular carga lenta para demostración
-                if (SIMULAR_CARGA_LENTA) {
-                    Thread.sleep(MILISEGUNDOS_SIMULACION);
-                }
 
                 // Obtener datos desde la capa DAO
                 ObservableList<Person> personas = DaoPerson.fillTableSync();
@@ -335,9 +347,9 @@ public class TableViewController {
         });
 
         task.setOnFailed(e -> {
-            logger.error("Error al cargar datos: {}", task.getException().getMessage());
             gestionarProgreso(false);
-            mostrarAlertError(btnAdd.getScene().getWindow(), "Error al cargar datos");
+            String mensaje = String.format(bundle.getString("errorLoadPeople"), task.getException().getMessage());
+            mostrarAlertError(btnAdd.getScene().getWindow(), mensaje);
         });
 
         new Thread(task).start();
@@ -345,10 +357,16 @@ public class TableViewController {
 
     /**
      * Valida que los campos obligatorios estén completos y la fecha sea válida.
-     * @param firstName nombre ingresado
-     * @param lastName apellido ingresado  
-     * @param birthDate fecha de nacimiento
-     * @return true si todos los datos son válidos
+     * <p>
+     * Realiza validación completa de los datos del formulario antes de crear una nueva persona.
+     * Muestra alertas específicas para cada tipo de error encontrado.
+     * </p>
+     * 
+     * @param firstName nombre ingresado en el formulario
+     * @param lastName apellido ingresado en el formulario
+     * @param birthDate fecha de nacimiento seleccionada
+     * @return {@code true} si todos los datos son válidos, {@code false} si hay errores
+     * 
      */
     private boolean isValid(String firstName, String lastName, LocalDate birthDate) {
         if (firstName == null || firstName.trim().isEmpty()) {
@@ -372,18 +390,28 @@ public class TableViewController {
 
     /**
      * Limpia todos los campos del formulario de entrada.
+     * <p>
+     * Método utilitario que resetea todos los controles de entrada a su estado inicial,
+     * preparando el formulario para una nueva entrada de datos.
+     * </p>
      */
     private void clearFields() {
         logger.debug("Limpiando campos del formulario");
-        txtFirstName.clear();      // Limpiar campo nombre
-        txtLastName.clear();       // Limpiar campo apellido
-        dateBirth.setValue(null);  // Limpiar selector de fecha
+        txtFirstName.clear();      
+        txtLastName.clear(); 
+        dateBirth.setValue(null); 
     }
 
     /**
-     * Muestra un diálogo de error al usuario.
-     * @param win ventana padre del diálogo
-     * @param mensaje texto del error a mostrar
+     * Muestra un diálogo de error al usuario con logging automático.
+     * <p>
+     * Método utilitario que combina logging y notificación visual para errores.
+     * El diálogo es modal y bloquea la interacción hasta que el usuario lo cierre.
+     * </p>
+     * 
+     * @param win ventana padre del diálogo (para posicionamiento correcto)
+     * @param mensaje texto del error a mostrar (se registra automáticamente en el log)
+     * @see Alert
      */
     private void mostrarAlertError(Window win, String mensaje) {
         logger.error(mensaje);
@@ -396,9 +424,15 @@ public class TableViewController {
     }
 
     /**
-     * Muestra un diálogo informativo al usuario.
-     * @param win ventana padre del diálogo
-     * @param mensaje texto informativo a mostrar
+     * Muestra un diálogo informativo al usuario con logging automático.
+     * <p>
+     * Método utilitario que combina logging y notificación visual para información.
+     * El diálogo es modal y confirma operaciones exitosas al usuario.
+     * </p>
+     * 
+     * @param win ventana padre del diálogo (para posicionamiento correcto)
+     * @param mensaje texto informativo a mostrar (se registra automáticamente en el log)
+     * @see Alert
      */
     private void mostrarAlertInfo(Window win, String mensaje) {
         logger.info(mensaje);
@@ -423,5 +457,37 @@ public class TableViewController {
                 progressBar.progressProperty().unbind();  // Desvincular propiedades al ocultar
             }
         });
+    }
+
+    /*-------------------------------------*/
+    /*         Métodos Utilitarios         */
+    /*-------------------------------------*/
+
+    /**
+     * Prepara la interfaz de usuario para una operación asíncrona.
+     * <p>
+     * Método utilitario que implementa el patrón estándar de preparación para operaciones
+     * asíncronas, proporcionando retroalimentación visual consistente al usuario.
+     * </p>
+     * 
+     * @param button botón a deshabilitar durante la operación (no debe ser null)
+     */
+    private void prepareAsyncOperation(Button button) {
+        button.setDisable(true);
+        gestionarProgreso(true);
+    }
+
+    /**
+     * Completa una operación asíncrona restaurando la interfaz de usuario.
+     * <p>
+     * Método utilitario que implementa el patrón estándar de finalización para operaciones
+     * asíncronas, restaurando el estado normal de la interfaz de usuario.
+     * </p>
+     * 
+     * @param button botón a rehabilitar (debe ser el mismo usado en {@link #prepareAsyncOperation(Button)})
+     */
+    private void completeAsyncOperation(Button button) {
+        button.setDisable(false);
+        gestionarProgreso(false);
     }
 }

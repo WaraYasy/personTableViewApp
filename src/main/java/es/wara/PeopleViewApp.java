@@ -56,7 +56,6 @@ public class PeopleViewApp extends Application {
         ResourceBundle bundle = ResourceBundle.getBundle("es.wara.texts", locale);
         loger.debug("Resource bundle cargado para locale: {}", locale);
 
-
         // Cargar archivo FXML con la definición de la interfaz
         loger.debug("Cargando archivo FXML: fxml/tableView.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(PeopleViewApp.class.getResource("fxml/tableView.fxml"),bundle);

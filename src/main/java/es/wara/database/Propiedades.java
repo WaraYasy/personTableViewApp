@@ -24,7 +24,7 @@ public abstract class Propiedades{
     /** Logger para registrar eventos y depuración de la carga de propiedades. */
     private static final Logger loger = LoggerFactory.getLogger(Propiedades.class);
 
-    /**
+    /*
      * Bloque estático que se ejecuta al cargar la clase.
      * <p>
      * Carga automáticamente el archivo {@code configuration.properties} desde el classpath
@@ -39,8 +39,8 @@ public abstract class Propiedades{
             if (input != null) {
                 try {
                     props.load(input);
-                    loger.info("Archivo configuration.properties cargado correctamente desde el classpath");
-                    loger.debug("Propiedades cargadas: {}", props.keySet());
+                    //loger.info("Archivo configuration.properties cargado correctamente desde el classpath");
+                    //loger.debug("Propiedades cargadas: {}", props.keySet());
                 } finally {
                     input.close();
                 }
@@ -73,11 +73,11 @@ public abstract class Propiedades{
     public static String getValor(String clave) {
         String valor = props.getProperty(clave);
         if(valor != null && !valor.trim().isEmpty()) {
-            loger.debug("Clave '{}' encontrada con valor: '{}'", clave, valor);
+            //loger.debug("Clave '{}' encontrada con valor: '{}'", clave, valor);
             return valor.trim();
         }
         loger.error("La clave '{}' no está disponible en configuration.properties", clave);
-        loger.error("Claves disponibles: {}", props.keySet());
+        //loger.error("Claves disponibles: {}", props.keySet());
         throw new RuntimeException("La clave '" + clave + "' solicitada en configuration.properties no está disponible");
     }
 }

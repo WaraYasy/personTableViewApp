@@ -60,7 +60,7 @@ public class ConectionDB {
             String url = "jdbc:mariadb://" + host + ":" + port + "/" + database;
             conexionMDB = DriverManager.getConnection(url, user, pass);
             // Log de conexión exitosa
-            loger.info("Conexión establecida con {}", database);
+            //loger.info("Conexión establecida con {}", database);
 
         } catch (SQLException e) {
             loger.error("Conexión a BD fallida: " + e.getMessage());
@@ -95,7 +95,7 @@ public class ConectionDB {
         if (conexionMDB != null) {
             try {
                 conexionMDB.close();
-                loger.info("Conexión cerrada");
+                //loger.info("Conexión cerrada");
             } catch (SQLException e) {
                 loger.error("Error al cerrar conexión: " + e.getMessage());
             }

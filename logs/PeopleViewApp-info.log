@@ -1,0 +1,15 @@
+2025-10-07 10:12:41 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-07 10:12:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-07 10:12:41 [Thread-3] INFO  es.wara.control.TableViewController - Cargando personas desde BD
+2025-10-07 10:12:41 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-07 10:12:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-07 10:12:41 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-07 10:12:42 [Thread-3] INFO  es.wara.control.TableViewController - Carga completada: 152 personas
+2025-10-07 10:12:42 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-07 10:12:50 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando eliminación de 2 personas
+2025-10-07 10:12:50 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 162, First Name: ed, Last Name: adw, Birth Date: null
+2025-10-07 10:12:50 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 163, First Name: dwqwd, Last Name: fewef, Birth Date: 2025-09-25
+2025-10-07 10:12:50 [Thread-4] INFO  es.wara.control.TableViewController - Eliminación completada: 2/2 personas
+2025-10-07 10:12:50 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+2 persona(s) eliminada(s).
+Total restante: 150

@@ -89,7 +89,6 @@ public class PeopleViewApp extends Application {
         stage.show();
 
         loger.info("Aplicación JavaFX iniciada correctamente");
-
     }
 
     /**

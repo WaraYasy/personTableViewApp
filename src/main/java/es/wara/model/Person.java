@@ -203,8 +203,6 @@ public class Person {
         return isValid;
     }
 
-
-
     /**
      * Genera una representación en texto de la persona.
      * @return Cadena con los datos principales de la persona

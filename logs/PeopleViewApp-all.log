@@ -30,3 +30,38 @@
 2025-10-07 10:12:50 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
 2 persona(s) eliminada(s).
 Total restante: 150
+2025-10-07 10:54:02 [main] INFO  es.wara.PeopleViewApp - === INICIO DE PEOPLE VIEW APP ===
+2025-10-07 10:54:02 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Iniciando aplicación JavaFX - PeopleViewApp
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Configurando idioma: es
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Resource bundle cargado para locale: es
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando archivo FXML: fxml/tableView.fxml
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Resource bundle configurado para locale: es
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - TableViewController inicializado correctamente
+2025-10-07 10:54:02 [Thread-3] INFO  es.wara.control.TableViewController - Cargando personas desde BD
+2025-10-07 10:54:02 [Thread-3] DEBUG es.wara.dao.DaoPerson - Iniciando carga de personas desde la base de datos
+2025-10-07 10:54:02 [Thread-3] ERROR es.wara.database.Propiedades - No se pudo encontrar es/wara/configuration.properties en el classpath
+2025-10-07 10:54:02 [Thread-3] DEBUG es.wara.database.Propiedades - Intentando buscar con ruta alternativa...
+2025-10-07 10:54:02 [Thread-3] INFO  es.wara.database.Propiedades - Archivo configuration.properties cargado con ruta alternativa
+2025-10-07 10:54:02 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Archivo FXML cargado exitosamente
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Cargando hoja de estilos CSS..
+2025-10-07 10:54:02 [JavaFX Application Thread] DEBUG es.wara.PeopleViewApp - Estilos CSS aplicados exitosamente
+2025-10-07 10:54:02 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Mostrando ventana principal de la aplicación
+2025-10-07 10:54:02 [Thread-3] DEBUG es.wara.dao.DaoPerson - Consulta ejecutada, procesando resultados...
+2025-10-07 10:54:02 [Thread-3] DEBUG es.wara.dao.DaoPerson - Cargadas 144 personas
+2025-10-07 10:54:02 [Thread-3] INFO  es.wara.control.TableViewController - Carga completada: 144 personas
+2025-10-07 10:54:03 [JavaFX Application Thread] INFO  es.wara.PeopleViewApp - Aplicación JavaFX iniciada correctamente
+2025-10-07 10:54:03 [JavaFX Application Thread] DEBUG es.wara.control.TableViewController - Datos cargados: 144 personas
+2025-10-07 10:54:23 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Iniciando eliminación de 3 personas
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Iniciando eliminación de persona: Person ID: 164, First Name: dsdasfd, Last Name: asdasdsd, Birth Date: 2025-09-08
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Ejecutando DELETE para persona con ID: 164
+2025-10-07 10:54:23 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 164, First Name: dsdasfd, Last Name: asdasdsd, Birth Date: 2025-09-08
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Iniciando eliminación de persona: Person ID: 165, First Name: sasasasdadasd, Last Name: sasdasd, Birth Date: null
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Ejecutando DELETE para persona con ID: 165
+2025-10-07 10:54:23 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 165, First Name: sasasasdadasd, Last Name: sasdasd, Birth Date: null
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Iniciando eliminación de persona: Person ID: 166, First Name: asdasd, Last Name: asdasd, Birth Date: 2025-08-12
+2025-10-07 10:54:23 [Thread-4] DEBUG es.wara.dao.DaoPerson - Ejecutando DELETE para persona con ID: 166
+2025-10-07 10:54:23 [Thread-4] INFO  es.wara.dao.DaoPerson - Persona eliminada exitosamente. Person ID: 166, First Name: asdasd, Last Name: asdasd, Birth Date: 2025-08-12
+2025-10-07 10:54:23 [Thread-4] INFO  es.wara.control.TableViewController - Eliminación completada: 3/3 personas
+2025-10-07 10:54:23 [JavaFX Application Thread] INFO  es.wara.control.TableViewController - Eliminación exitosa.
+3 persona(s) eliminada(s).
+Total restante: 141

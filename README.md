@@ -1,10 +1,29 @@
 # ✨PeopleViewApp - Versión Asíncrona - Práctica con JavaFX, FXML, Maria DB y TableView✨
 
-Este proyecto es un ejercicio para practicar habilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
+Este proyecto es un ejercicio para pra## 📝Documentación
+
+Para generar la documentación JavaDoc:
+
+```bash
+mvn javadoc:javadoc
+```
+
+La documentación se generará en `target/apidocs/`.
+
+### 🏠 Arquitectura Refactorizada
+
+Esta versión incluye mejoras arquitectónicas significativas:
+
+- **Métodos utilitarios**: `prepareAsyncOperation()` y `completeAsyncOperation()` para operaciones consistentes
+- **Reducción de duplicación**: Eliminación de ~18 líneas de código repetitivo
+- **JavaDoc profesional**: Documentación completa con ejemplos de código y enlaces cruzados
+- **UI responsiva**: Operaciones que nunca bloquean la interfaz de usuariobilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
 
 ##📋Descripción
 
 La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
+
+**🚀 Versión Refactorizada**: Incluye operaciones **completamente asíncronas** que no bloquean la interfaz de usuario, métodos utilitarios para mejor mantenibilidad y documentación JavaDoc profesional.
 
 ## 🏁Objetivos
 
@@ -33,6 +52,8 @@ La aplicación implementa una **agenda personal multilingue** con interfaz gráf
 - **Agregar personas**: Formulario con validación de campos obligatorios y mensajes localizados
 - **Eliminar registros**: Selección múltiple y eliminación segura con confirmaciones
 - **Restaurar datos**: Restablece la tabla a su estado inicial con datos predefinidos
+- **Operaciones asíncronas**: Todas las operaciones de BD se ejecutan sin bloquear la UI
+- **Indicadores de progreso**: Barras de progreso y feedback visual durante operaciones
 - **Validación avanzada**: Control de datos vacíos, fechas futuras y consistencia de datos
 - **Alertas multilingues**: Mensajes de error e información localizados
 - **Soporte de idiomas**: Cambio dinámico entre español e inglés
@@ -45,7 +66,7 @@ src/main/java/es/wara/
 ├── Lanzador.java              # Punto de entrada principal
 ├── PeopleViewApp.java         # Aplicación JavaFX principal
 ├── control/
-│   └── TableViewController.java  # Controlador de la interfaz
+│   └── TableViewController.java  # Controlador refactorizado con operaciones asíncronas
 ├── dao/
 │   ├── ConectionDB.java       # Gestión de conexiones de base de datos
 │   └── DaoPerson.java         # Operaciones CRUD para Person
@@ -175,8 +196,9 @@ La aplicación soporta completamente **múltiples idiomas** utilizando el patró
 1. **Agregar**: Completa los campos localizados de nombre, apellido y fecha de nacimiento, luego presiona el botón "Añadir"/"Add"
 2. **Eliminar**: Selecciona una o múltiples filas en la tabla y presiona "Eliminar Seleccionadas"/"Delete Selected Rows"
 3. **Restaurar**: Presiona "Restaurar Filas"/"Restore Rows" para volver a los datos iniciales (✨The Beatles ✨)
-4. **Validaciones automáticas**: El sistema valida los datos y muestra mensajes de error localizados
-5. **Confirmaciones**: Todas las operaciones destructivas requieren confirmación del usuario
+4. **Operaciones asíncronas**: Todas las operaciones muestran indicadores de progreso y no bloquean la UI
+5. **Validaciones automáticas**: El sistema valida los datos y muestra mensajes de error localizados
+6. **Confirmaciones**: Todas las operaciones destructivas requieren confirmación del usuario
 
 ### Datos Predefinidos
 La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:

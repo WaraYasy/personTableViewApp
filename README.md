@@ -10,20 +10,11 @@ mvn javadoc:javadoc
 
 La documentación se generará en `target/apidocs/`.
 
-### 🏠 Arquitectura Refactorizada
-
-Esta versión incluye mejoras arquitectónicas significativas:
-
-- **Métodos utilitarios**: `prepareAsyncOperation()` y `completeAsyncOperation()` para operaciones consistentes
-- **Reducción de duplicación**: Eliminación de ~18 líneas de código repetitivo
-- **JavaDoc profesional**: Documentación completa con ejemplos de código y enlaces cruzados
-- **UI responsiva**: Operaciones que nunca bloquean la interfaz de usuariobilidades avanzadas en JavaFX, centrándose en el uso de **TableView** para la gestión de datos, sistema de logging profesional, y empaquetación de aplicaciones en archivos .jar ejecutables.
-
-##📋Descripción
+## 📋Descripción
 
 La aplicación implementa una **agenda personal multilingue** con interfaz gráfica utilizando JavaFX y persistencia en **base de datos MariaDB**. La interfaz está construida con una **TableView** para mostrar y manipular una lista de personas, con soporte completo en español e inglés. Los usuarios pueden agregar, eliminar y restaurar registros de personas con información como nombre, apellido y fecha de nacimiento, con todos los datos almacenados de forma permanente en la base de datos.
 
-**🚀 Versión Refactorizada**: Incluye operaciones **completamente asíncronas** que no bloquean la interfaz de usuario, métodos utilitarios para mejor mantenibilidad y documentación JavaDoc profesional.
+**🚀 Nueva Versión**: Incluye operaciones **completamente asíncronas** que no bloquean la interfaz de usuario, métodos utilitarios para mejor mantenibilidad y documentación JavaDoc profesional.
 
 ## 🏁Objetivos
 
@@ -209,4 +200,4 @@ La aplicación incluye datos de ejemplo de **✨The Beatles🥧✨**:
 
 ---
 
-*Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue.✨*
+*✨Ejercicio de DEIN para reforzar conceptos de JavaFX, FXML, TableView y sistemas de logging. Ahora con soporte multilingue.✨*
